@@ -11,6 +11,7 @@ cmdline
     .version(version)
     .arguments('[PATH]')
     .option('--write', 'Overwrite files in place')
+    .option('--use-tabs', 'Indent lines with tabs instead of spaces')
     .option('--tab-width <int>', 'Specify the number of spaces per indentation-level', defaults.tabWidth)
     .option('--key-order <items>', 'Order to sort keys in package.json', (val) => val.split(','), defaults.keyOrder)
     .parse(process.argv);

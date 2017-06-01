@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`It indents using a default tab width 1`] = `
+exports[`It indents using 2 spaces (default) 1`] = `
 "{
   \\"name\\": \\"Test\\",
   \\"description\\": \\"Description\\",

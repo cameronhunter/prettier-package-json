@@ -1,6 +1,6 @@
 const { format } = require('../src');
 
-test('It indents using 2 spaces (default)', () => {
+test('It indents using spaces (default)', () => {
   const json = {
     name: 'Test',
     description: 'Description',
@@ -10,12 +10,12 @@ test('It indents using 2 spaces (default)', () => {
   expect(format(json)).toMatchSnapshot();
 });
 
-test('It indents using the specified tab width', () => {
+test('It indents using tabs', () => {
   const json = {
     name: 'Test',
     description: 'Description',
     version: '0.0.0'
   };
 
-  expect(format(json, { tabWidth: 4 })).toMatchSnapshot();
+  expect(format(json, { useTabs: true })).toMatchSnapshot();
 });
