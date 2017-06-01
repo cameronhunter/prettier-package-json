@@ -10,10 +10,10 @@ const defaults = require('../src/defaultOptions');
 cmdline
     .version(version)
     .arguments('[PATH]')
-    .option('--write', 'Overwrite files in place')
-    .option('--use-tabs', 'Indent lines with tabs instead of spaces')
-    .option('--tab-width <int>', 'Specify the number of spaces per indentation-level', defaults.tabWidth)
-    .option('--key-order <items>', 'Order to sort keys in package.json', (val) => val.split(','), defaults.keyOrder)
+    .option('--write', 'Edit the file in-place. (Beware!)')
+    .option('--tab-width <int>', `Specify the number of spaces per indentation-level. Defaults to ${defaults.tabWidth}.`, defaults.tabWidth)
+    .option('--use-tabs', 'Indent lines with tabs instead of spaces.')
+    .option('--key-order <items>', 'Sort order for keys in package.json', (val) => val.split(','), defaults.keyOrder)
     .parse(process.argv);
 
 const [packageJsonPath = path.join(process.cwd(), 'package.json')] = cmdline.args;
