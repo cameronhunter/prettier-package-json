@@ -1,6 +1,7 @@
 module.exports = Object.freeze({
   tabWidth: 2,
   keyOrder: [
+    'private',
     'name',
     'description',
     'author',
