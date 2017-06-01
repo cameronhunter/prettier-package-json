@@ -6,34 +6,88 @@ const path = require('path');
 const prettier = require('../src');
 const { version } = require('../package.json');
 const defaults = require('../src/defaultOptions');
+const glob = require('glob');
 
 cmdline
     .version(version)
-    .arguments('[PATH]')
+    .arguments('[PATH...]')
     .option('--write', 'Edit the file in-place. (Beware!)')
-    .option('--tab-width <int>', `Specify the number of spaces per indentation-level. Defaults to ${defaults.tabWidth}.`, defaults.tabWidth)
+    .option('--tab-width <int>', `Specify the number of spaces per indentation-level. Defaults to ${defaults.tabWidth}.`, (value) => parseInt(value, 10), defaults.tabWidth)
     .option('--use-tabs', 'Indent lines with tabs instead of spaces.')
     .option('--key-order <items>', 'Sort order for keys in package.json', (val) => val.split(','), defaults.keyOrder)
+    .option('-l, --list-different', 'Print filenames of files that are different from prettier-package-json formatting.')
     .parse(process.argv);
 
 const [packageJsonPath = path.join(process.cwd(), 'package.json')] = cmdline.args;
 
-fs.pathExists(packageJsonPath).catch(() => {
-  process.exitCode = 1;
-  cmdline.help();
-}).then(() => {
-  return fs.readJson(packageJsonPath);
-}).then((packageJson) => {
-  return prettier.format(packageJson, cmdline);
-}).then((prettyJson) => {
-  if (cmdline.write) {
-    return fs.writeFile(packageJsonPath, prettyJson);
-  } else {
-    return console.log(prettyJson);
-  }
-}).then(() => {
-  process.exitCode = 0;
-}).catch((err) => {
-  console.error(err);
-  process.exitCode = 1;
+const fromGlob = (arg) => {
+  return new Promise((resolve, reject) => {
+    glob(arg, (err, files) => err ? reject(err) : resolve(files));
+  });
+};
+
+const format = (filepath, options) => {
+  return fs.pathExists(filepath).then((exists) => {
+    if (exists) {
+      return fs.readJson(filepath);
+    } else {
+      return Promise.reject(`${filepath} doesn't exist`);
+    }
+  }).then((json) => {
+    return prettier.format(json, options);
+  }).then((json) => {
+    return { filepath, json };
+  }).catch((error) => {
+    return { filepath, error };
+  });
+};
+
+const check = (filepath, options) => {
+  return fs.pathExists(filepath).then((exists) => {
+    if (exists) {
+      return fs.readJson(filepath);
+    } else {
+      return Promise.reject(`${filepath} doesn't exist`);
+    }
+  }).then((json) => {
+    return prettier.check(json, options);
+  }).then((isSame) => {
+    return { filepath, isDifferent: !isSame };
+  }).catch((error) => {
+    return { filepath, error };
+  });
+};
+
+const files = Promise.all(cmdline.args.map(fromGlob)).then((matches) => {
+  return matches.reduce((state, match) => [...state, ...match], []);
 });
+
+if (cmdline.listDifferent) {
+  files.then((paths) => {
+    return Promise.all(paths.map((filepath) => check(filepath, cmdline)));
+  }).then((details) => {
+    details.forEach(({ filepath, isDifferent, error }) => {
+      if (error) {
+        console.error(error);
+      } else if (isDifferent) {
+        console.log(filepath);
+      }
+    });
+  });
+} else {
+  files.then((paths) => {
+    return Promise.all(paths.map((filepath) => format(filepath, cmdline)));
+  }).then((details) => {
+    details.forEach(({ filepath, json, error }) => {
+      if (error) {
+        console.error(error);
+      } else {
+        if (cmdline.write) {
+          return fs.writeFile(filepath, json);
+        } else {
+          return console.log(json);
+        }
+      }
+    });
+  })
+}

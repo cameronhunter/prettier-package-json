@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prettier-package-json --list-different tests/__fixtures__/package-*.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "tests/__fixtures__/package-1.json
+",
+}
+`;
+
+exports[`prettier-package-json --tab-width 8 tests/__fixtures__/package-1.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "{
+        \\"name\\": \\"prettier-package-json\\",
+        \\"description\\": \\"Prettier formatter for package.json files\\",
+        \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
+        \\"license\\": \\"MIT\\",
+        \\"version\\": \\"1.0.1\\",
+        \\"main\\": \\"src/index.js\\",
+        \\"bin\\": {
+                \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
+        },
+        \\"scripts\\": {
+                \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
+                \\"test\\": \\"jest\\"
+        },
+        \\"dependencies\\": {
+                \\"commander\\": \\"^2.9.0\\",
+                \\"fs-extra\\": \\"^3.0.1\\",
+                \\"glob\\": \\"^7.1.2\\",
+                \\"sort-object-keys\\": \\"^1.1.2\\"
+        },
+        \\"devDependencies\\": {
+                \\"cross-spawn\\": \\"^5.1.0\\",
+                \\"husky\\": \\"^0.13.4\\",
+                \\"jest\\": \\"^20.0.4\\"
+        },
+        \\"keywords\\": [
+                \\"prettier\\",
+                \\"package.json\\",
+                \\"formatter\\",
+                \\"sort\\"
+        ]
+}
+",
+}
+`;
+
+exports[`prettier-package-json --use-tabs tests/__fixtures__/package-1.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "{
+	\\"name\\": \\"prettier-package-json\\",
+	\\"description\\": \\"Prettier formatter for package.json files\\",
+	\\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
+	\\"license\\": \\"MIT\\",
+	\\"version\\": \\"1.0.1\\",
+	\\"main\\": \\"src/index.js\\",
+	\\"bin\\": {
+		\\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
+	},
+	\\"scripts\\": {
+		\\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
+		\\"test\\": \\"jest\\"
+	},
+	\\"dependencies\\": {
+		\\"commander\\": \\"^2.9.0\\",
+		\\"fs-extra\\": \\"^3.0.1\\",
+		\\"glob\\": \\"^7.1.2\\",
+		\\"sort-object-keys\\": \\"^1.1.2\\"
+	},
+	\\"devDependencies\\": {
+		\\"cross-spawn\\": \\"^5.1.0\\",
+		\\"husky\\": \\"^0.13.4\\",
+		\\"jest\\": \\"^20.0.4\\"
+	},
+	\\"keywords\\": [
+		\\"prettier\\",
+		\\"package.json\\",
+		\\"formatter\\",
+		\\"sort\\"
+	]
+}
+",
+}
+`;
+
+exports[`prettier-package-json tests/__fixtures__/package-*.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "{
+  \\"name\\": \\"prettier-package-json\\",
+  \\"description\\": \\"Prettier formatter for package.json files\\",
+  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
+  \\"license\\": \\"MIT\\",
+  \\"version\\": \\"1.0.1\\",
+  \\"main\\": \\"src/index.js\\",
+  \\"bin\\": {
+    \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
+  },
+  \\"scripts\\": {
+    \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
+    \\"test\\": \\"jest\\"
+  },
+  \\"dependencies\\": {
+    \\"commander\\": \\"^2.9.0\\",
+    \\"fs-extra\\": \\"^3.0.1\\",
+    \\"glob\\": \\"^7.1.2\\",
+    \\"sort-object-keys\\": \\"^1.1.2\\"
+  },
+  \\"devDependencies\\": {
+    \\"cross-spawn\\": \\"^5.1.0\\",
+    \\"husky\\": \\"^0.13.4\\",
+    \\"jest\\": \\"^20.0.4\\"
+  },
+  \\"keywords\\": [
+    \\"prettier\\",
+    \\"package.json\\",
+    \\"formatter\\",
+    \\"sort\\"
+  ]
+}
+{
+  \\"name\\": \\"prettier-package-json\\",
+  \\"description\\": \\"Prettier formatter for package.json files\\",
+  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
+  \\"license\\": \\"MIT\\",
+  \\"version\\": \\"1.0.1\\",
+  \\"main\\": \\"src/index.js\\",
+  \\"bin\\": {
+    \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
+  },
+  \\"scripts\\": {
+    \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
+    \\"test\\": \\"jest\\"
+  },
+  \\"dependencies\\": {
+    \\"commander\\": \\"^2.9.0\\",
+    \\"fs-extra\\": \\"^3.0.1\\",
+    \\"glob\\": \\"^7.1.2\\",
+    \\"sort-object-keys\\": \\"^1.1.2\\"
+  },
+  \\"devDependencies\\": {
+    \\"cross-spawn\\": \\"^5.1.0\\",
+    \\"husky\\": \\"^0.13.4\\",
+    \\"jest\\": \\"^20.0.4\\"
+  },
+  \\"keywords\\": [
+    \\"prettier\\",
+    \\"package.json\\",
+    \\"formatter\\",
+    \\"sort\\"
+  ]
+}
+",
+}
+`;
+
+exports[`prettier-package-json tests/__fixtures__/package-1.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "{
+  \\"name\\": \\"prettier-package-json\\",
+  \\"description\\": \\"Prettier formatter for package.json files\\",
+  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
+  \\"license\\": \\"MIT\\",
+  \\"version\\": \\"1.0.1\\",
+  \\"main\\": \\"src/index.js\\",
+  \\"bin\\": {
+    \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
+  },
+  \\"scripts\\": {
+    \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
+    \\"test\\": \\"jest\\"
+  },
+  \\"dependencies\\": {
+    \\"commander\\": \\"^2.9.0\\",
+    \\"fs-extra\\": \\"^3.0.1\\",
+    \\"glob\\": \\"^7.1.2\\",
+    \\"sort-object-keys\\": \\"^1.1.2\\"
+  },
+  \\"devDependencies\\": {
+    \\"cross-spawn\\": \\"^5.1.0\\",
+    \\"husky\\": \\"^0.13.4\\",
+    \\"jest\\": \\"^20.0.4\\"
+  },
+  \\"keywords\\": [
+    \\"prettier\\",
+    \\"package.json\\",
+    \\"formatter\\",
+    \\"sort\\"
+  ]
+}
+",
+}
+`;
