@@ -1,0 +1,17 @@
+{
+  "name": "prettier-package-json",
+  "version": "0.0.0",
+  "description": "Prettier formatter for package.json files",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "prettier",
+    "package.json",
+    "formatter",
+    "sort"
+  ],
+  "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
+  "license": "MIT"
+}
