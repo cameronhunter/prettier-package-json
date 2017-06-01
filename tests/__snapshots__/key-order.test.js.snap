@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It orders keys using the default key order 1`] = `
+"{
+  \\"name\\": \\"Test\\",
+  \\"description\\": \\"Description\\",
+  \\"version\\": \\"0.0.0\\"
+}"
+`;
+
+exports[`It orders keys using the specified key order 1`] = `
+"{
+  \\"name\\": \\"Test\\",
+  \\"version\\": \\"0.0.0\\",
+  \\"description\\": \\"Description\\"
+}"
+`;

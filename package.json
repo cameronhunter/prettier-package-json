@@ -18,7 +18,8 @@
     "sort-object-keys": "^1.1.2"
   },
   "devDependencies": {
-    "husky": "^0.13.4"
+    "husky": "^0.13.4",
+    "jest": "^20.0.4"
   },
   "keywords": [
     "prettier",
