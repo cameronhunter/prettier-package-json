@@ -1,22 +1,26 @@
 {
   "name": "prettier-package-json",
-  "version": "0.0.0",
   "description": "Prettier formatter for package.json files",
+  "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
+  "license": "MIT",
+  "version": "0.0.0",
   "main": "src/index.js",
   "scripts": {
+    "precommit": "./bin/prettier-package-json ./package.json && git add package.json",
     "test": "jest"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-extra": "^3.0.1",
+    "sort-object-keys": "^1.1.2"
+  },
+  "devDependencies": {
+    "husky": "^0.13.4"
   },
   "keywords": [
     "prettier",
     "package.json",
     "formatter",
     "sort"
-  ],
-  "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
-  "license": "MIT",
-  "dependencies": {
-    "commander": "^2.9.0",
-    "fs-extra": "^3.0.1",
-    "sort-object-keys": "^1.1.2"
-  }
+  ]
 }

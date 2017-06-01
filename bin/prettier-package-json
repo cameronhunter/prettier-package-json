@@ -3,7 +3,6 @@
 const cmdline = require('commander');
 const fs = require('fs-extra');
 const prettier = require('../src');
-const packageJsonPath = process.argv.slice(2);
 const { version } = require('../package.json');
 const defaults = require('../src/defaultOptions');
 
@@ -15,6 +14,10 @@ cmdline
     .parse(process.argv);
 
 const [packageJsonPath] = cmdline.args;
+
+if (!packageJsonPath) {
+  cmdline.help();
+}
 
 fs.readJson(packageJsonPath).then((packageJson) => {
   return prettier.format(packageJson, cmdline);

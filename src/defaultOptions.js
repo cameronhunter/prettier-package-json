@@ -3,8 +3,8 @@ module.exports = Object.freeze({
   keyOrder: [
     'name',
     'description',
-    'license',
     'author',
+    'license',
     'repository',
     'bugs',
     'version',
