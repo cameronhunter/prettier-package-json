@@ -5,8 +5,11 @@
   "license": "MIT",
   "version": "0.0.0",
   "main": "src/index.js",
+  "bin": {
+    "prettier-package-json": "./bin/prettier-package-json"
+  },
   "scripts": {
-    "precommit": "./bin/prettier-package-json ./package.json && git add package.json",
+    "precommit": "./bin/prettier-package-json --write && git add package.json",
     "test": "jest"
   },
   "dependencies": {

@@ -2,25 +2,37 @@
 
 const cmdline = require('commander');
 const fs = require('fs-extra');
+const path = require('path');
 const prettier = require('../src');
 const { version } = require('../package.json');
 const defaults = require('../src/defaultOptions');
 
 cmdline
     .version(version)
-    .arguments('<PATH>')
+    .arguments('[PATH]')
+    .option('--write', 'Overwrite files in place')
     .option('--tab-width <int>', 'Specify the number of spaces per indentation-level', defaults.tabWidth)
     .option('--key-order <items>', 'Order to sort keys in package.json', (val) => val.split(','), defaults.keyOrder)
     .parse(process.argv);
 
-const [packageJsonPath] = cmdline.args;
+const [packageJsonPath = path.join(process.cwd(), 'package.json')] = cmdline.args;
 
-if (!packageJsonPath) {
+fs.pathExists(packageJsonPath).catch(() => {
+  process.exitCode = 1;
   cmdline.help();
-}
-
-fs.readJson(packageJsonPath).then((packageJson) => {
+}).then(() => {
+  return fs.readJson(packageJsonPath);
+}).then((packageJson) => {
   return prettier.format(packageJson, cmdline);
 }).then((prettyJson) => {
-  return fs.writeFile(packageJsonPath, prettyJson);
+  if (cmdline.write) {
+    return fs.writeFile(packageJsonPath, prettyJson);
+  } else {
+    return console.log(prettyJson);
+  }
+}).then(() => {
+  process.exitCode = 0;
+}).catch((err) => {
+  console.error(err);
+  process.exitCode = 1;
 });
