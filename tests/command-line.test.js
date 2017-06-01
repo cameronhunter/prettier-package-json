@@ -1,11 +1,8 @@
 const spawn = require('./__helpers__/spawn');
 const path = require('path');
 
-const binDirectory = path.join(__dirname, '..', 'bin');
-const bin = (command) => path.relative(process.cwd(), path.join(binDirectory, command));
+const bin = (command) => path.relative(process.cwd(), path.join(__dirname, '..', 'bin', command));
 const fixture = (name) => path.relative(process.cwd(), path.join(__dirname, '__fixtures__', name));
-
-const entries = (obj = {}) => Object.keys(obj).map((key) => [key, obj[key]]);
 
 const testCommand = (cmdline, cb) => {
   const [command, ...args] = cmdline.split(' ');

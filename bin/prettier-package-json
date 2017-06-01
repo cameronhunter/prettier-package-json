@@ -18,47 +18,9 @@ cmdline
     .option('-l, --list-different', 'Print filenames of files that are different from prettier-package-json formatting.')
     .parse(process.argv);
 
-const [packageJsonPath = path.join(process.cwd(), 'package.json')] = cmdline.args;
+const globs = cmdline.args.length > 0 ? cmdline.args : [path.join(process.cwd(), 'package.json')];
 
-const fromGlob = (arg) => {
-  return new Promise((resolve, reject) => {
-    glob(arg, (err, files) => err ? reject(err) : resolve(files));
-  });
-};
-
-const format = (filepath, options) => {
-  return fs.pathExists(filepath).then((exists) => {
-    if (exists) {
-      return fs.readJson(filepath);
-    } else {
-      return Promise.reject(`${filepath} doesn't exist`);
-    }
-  }).then((json) => {
-    return prettier.format(json, options);
-  }).then((json) => {
-    return { filepath, json };
-  }).catch((error) => {
-    return { filepath, error };
-  });
-};
-
-const check = (filepath, options) => {
-  return fs.pathExists(filepath).then((exists) => {
-    if (exists) {
-      return fs.readJson(filepath);
-    } else {
-      return Promise.reject(`${filepath} doesn't exist`);
-    }
-  }).then((json) => {
-    return prettier.check(json, options);
-  }).then((isSame) => {
-    return { filepath, isDifferent: !isSame };
-  }).catch((error) => {
-    return { filepath, error };
-  });
-};
-
-const files = Promise.all(cmdline.args.map(fromGlob)).then((matches) => {
+const files = Promise.all(globs.map(globToPaths)).then((matches) => {
   return matches.reduce((state, match) => [...state, ...match], []);
 });
 
@@ -90,4 +52,42 @@ if (cmdline.listDifferent) {
       }
     });
   })
+}
+
+function globToPaths(arg) {
+  return new Promise((resolve, reject) => {
+    glob(arg, (err, files) => err ? reject(err) : resolve(files));
+  });
+}
+
+function format(filepath, options) {
+  return fs.pathExists(filepath).then((exists) => {
+    if (exists) {
+      return fs.readJson(filepath);
+    } else {
+      return Promise.reject(`${filepath} doesn't exist`);
+    }
+  }).then((json) => {
+    return prettier.format(json, options);
+  }).then((json) => {
+    return { filepath, json };
+  }).catch((error) => {
+    return { filepath, error };
+  });
+}
+
+function check(filepath, options) {
+  return fs.pathExists(filepath).then((exists) => {
+    if (exists) {
+      return fs.readJson(filepath);
+    } else {
+      return Promise.reject(`${filepath} doesn't exist`);
+    }
+  }).then((json) => {
+    return prettier.check(json, options);
+  }).then((isSame) => {
+    return { filepath, isDifferent: !isSame };
+  }).catch((error) => {
+    return { filepath, error };
+  });
 }
