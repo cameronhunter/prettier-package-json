@@ -10,6 +10,8 @@
   },
   "scripts": {
     "precommit": "./bin/prettier-package-json --write && git add package.json",
+    "preversion": "npm test",
+    "version": "git push && git push --tags",
     "test": "jest"
   },
   "dependencies": {
