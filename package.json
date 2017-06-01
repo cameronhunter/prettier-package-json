@@ -13,5 +13,10 @@
     "sort"
   ],
   "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "fs-extra": "^3.0.1",
+    "sort-object-keys": "^1.1.2"
+  }
 }

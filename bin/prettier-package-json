@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+const cmdline = require('commander');
+const fs = require('fs-extra');
+const prettier = require('../src');
+const packageJsonPath = process.argv.slice(2);
+const { version } = require('../package.json');
+const defaults = require('../src/defaultOptions');
+
+cmdline
+    .version(version)
+    .arguments('<PATH>')
+    .option('--tab-width <int>', 'Specify the number of spaces per indentation-level', defaults.tabWidth)
+    .option('--key-order <items>', 'Order to sort keys in package.json', (val) => val.split(','), defaults.keyOrder)
+    .parse(process.argv);
+
+const [packageJsonPath] = cmdline.args;
+
+fs.readJson(packageJsonPath).then((packageJson) => {
+  return prettier.format(packageJson, cmdline);
+}).then((prettyJson) => {
+  return fs.writeFile(packageJsonPath, prettyJson);
+});
