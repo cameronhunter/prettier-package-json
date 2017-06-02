@@ -39,9 +39,9 @@ Object {
                 \\"jest\\": \\"^20.0.4\\"
         },
         \\"keywords\\": [
-                \\"prettier\\",
-                \\"package.json\\",
                 \\"formatter\\",
+                \\"package.json\\",
+                \\"prettier\\",
                 \\"sort\\"
         ]
 }
@@ -79,9 +79,9 @@ Object {
 		\\"jest\\": \\"^20.0.4\\"
 	},
 	\\"keywords\\": [
-		\\"prettier\\",
-		\\"package.json\\",
 		\\"formatter\\",
+		\\"package.json\\",
+		\\"prettier\\",
 		\\"sort\\"
 	]
 }
@@ -119,9 +119,9 @@ Object {
     \\"jest\\": \\"^20.0.4\\"
   },
   \\"keywords\\": [
-    \\"prettier\\",
-    \\"package.json\\",
     \\"formatter\\",
+    \\"package.json\\",
+    \\"prettier\\",
     \\"sort\\"
   ]
 }
@@ -151,9 +151,9 @@ Object {
     \\"jest\\": \\"^20.0.4\\"
   },
   \\"keywords\\": [
-    \\"prettier\\",
-    \\"package.json\\",
     \\"formatter\\",
+    \\"package.json\\",
+    \\"prettier\\",
     \\"sort\\"
   ]
 }
@@ -191,9 +191,9 @@ Object {
     \\"jest\\": \\"^20.0.4\\"
   },
   \\"keywords\\": [
-    \\"prettier\\",
-    \\"package.json\\",
     \\"formatter\\",
+    \\"package.json\\",
+    \\"prettier\\",
     \\"sort\\"
   ]
 }

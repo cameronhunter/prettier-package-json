@@ -15,8 +15,24 @@ function format(packageJson, opts) {
   const json = Object.assign(
     {},
     packageJson,
+    // 'author',
+    // 'contributors',
+    sort('man', packageJson),
+    sort('bin', packageJson),
+    sort('files', packageJson),
+    sort('directories', packageJson),
     sortScripts(packageJson.scripts),
-    sortKeywords(packageJson.keywords)
+    sort('config', packageJson),
+    sort('dependencies', packageJson),
+    sort('bundledDependencies', packageJson),
+    sort('peerDependencies', packageJson),
+    sort('devDependencies', packageJson),
+    sort('optionalDependencies', packageJson),
+    sort('keywords', packageJson),
+    sort('engines', packageJson),
+    sort('os', packageJson),
+    sort('cpu', packageJson),
+    sort('publishConfig', packageJson)
   );
 
   return stringify(sortObject(json, options.keyOrder), options);
@@ -32,6 +48,26 @@ function check(packageJson, opts) {
     return stringify(object, options) === formatted;
   } catch(e) {
     return false;
+  }
+}
+
+function sort(key, packageJson) {
+  const input = packageJson[key] || {};
+  if (Array.isArray(input)) {
+    if (input.length === 0) {
+      return {};
+    } else {
+      return { [key]: input.sort() };
+    }
+  } else if (typeof input === 'object') {
+    const keys = Object.keys(input);
+    if (keys.length === 0) {
+      return {};
+    } else {
+      return { [key]: sortObject(input, keys.sort()) };
+    }
+  } else {
+    return {};
   }
 }
 
