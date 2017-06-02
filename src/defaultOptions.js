@@ -11,6 +11,7 @@ module.exports = Object.freeze({
     'description',
     'author',
     'contributors',
+    'maintainers',
     'license',
     'homepage',
     'repository',

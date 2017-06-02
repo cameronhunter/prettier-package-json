@@ -2,6 +2,144 @@
 
 `prettier-package-json` is an opinionated JSON formatter inspired by `prettier`. It removes all original styling and ensures that the outputted `package.json` conforms to a consistent style.
 
+## Features
+
+### Consistent key order
+
+Keys in `package.json` will be sorted in an [opinionated order](src/defaultOptions.js) but may be configured to your own preferences.
+
+Input:
+
+```json
+{
+  "description": "Prettier formatter for package.json files",
+  "name": "prettier-package-json",
+  "license": "MIT",
+  "version": "1.0.1",
+  "author": "Cameron Hunter <hello@cameronhunter.co.uk>"
+}
+```
+
+Output:
+
+```json
+{
+  "name": "prettier-package-json",
+  "description": "Prettier formatter for package.json files",
+  "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
+  "license": "MIT",
+  "version": "1.0.1"
+}
+```
+
+### Sensibly sorted scripts
+
+The `scripts` field is sorted alphabetically but keeps `pre` and `post` scripts surrounding their named script.
+
+Input:
+
+```json
+{
+  "name": "prettier-package-json",
+  "version": "1.0.1",
+  "scripts": {
+    "test": "test",
+    "pretest": "pretest",
+    "version": "version",
+    "postversion": "postversion",
+    "build": "build"
+  }
+}
+```
+
+Output:
+
+```json
+{
+  "name": "prettier-package-json",
+  "version": "1.0.1",
+  "scripts": {
+    "build": "build",
+    "pretest": "pretest",
+    "test": "test",
+    "version": "version",
+    "postversion": "postversion"
+  }
+}
+```
+
+### Expand/contract author, contributors, and maintainers
+
+The `author`, `contributors` and `maintainers` fields will be shortened to their string versions and sorted by name. Use
+the `--expand-users` option if you prefer user objects.
+
+Input:
+
+```json
+{
+  "name": "prettier-package-json",
+  "version": "1.0.1",
+  "author": {
+    "name": "Cameron Hunter",
+    "email": "hello@cameronhunter.co.uk",
+    "url": "https://cameronhunter.co.uk"
+  },
+  "contributors": [
+    "Barry",
+    "Adam <adam@email.com>"
+  ]
+}
+```
+
+Output:
+
+```json
+{
+  "name": "prettier-package-json",
+  "version": "1.0.1",
+  "author": "Cameron Hunter <hello@cameronhunter.co.uk> (https://cameronhunter.co.uk)",
+  "contributors": [
+    "Adam <adam@email.com>",
+    "Barry"
+  ]
+}
+```
+
+### Filter and sort files field
+
+Some files are included or excluded automatically by `npm`, these are removed from the `files` field before sorting
+alphabetically.
+
+Input:
+
+```json
+{
+  "name": "prettier-package-json",
+  "version": "1.0.1",
+  "main": "src/index.js",
+  "files": [
+    "src/index.js",
+    "src",
+    "CHANGELOG.md",
+    "readme.md",
+    "package-lock.json"
+  ]
+}
+```
+
+Output:
+
+```json
+{
+  "name": "prettier-package-json",
+  "version": "1.0.1",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ]
+}
+```
+
 ## Usage
 
 Install:
