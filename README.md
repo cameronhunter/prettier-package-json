@@ -1,5 +1,7 @@
 # Prettier `package.json`
 
+[![Build Status](https://travis-ci.org/cameronhunter/prettier-package-json.svg?branch=master)](https://travis-ci.org/cameronhunter/prettier-package-json) [![npm](https://img.shields.io/npm/v/prettier-package-json.svg)](https://www.npmjs.com/package/prettier-package-json)
+
 `prettier-package-json` is an opinionated JSON formatter inspired by `prettier`. It removes all original styling and ensures that the outputted `package.json` conforms to a consistent style.
 
 ## Features
@@ -182,7 +184,7 @@ You can use this with a pre-commit tool. This can re-format your files that are 
 
 ##### 1. [lint-staged](https://github.com/okonet/lint-staged)
 
-Install it along with [husky](https://github.com/typicode/husky):
+Install it along with [husky](https://github.com/cameronhunter/husky):
 
 ```bash
 yarn add lint-staged husky --dev
