@@ -14,6 +14,7 @@ cmdline
     .option('--write', 'Edit the files in-place. (Beware!)')
     .option('--tab-width <int>', `Specify the number of spaces per indentation-level. Defaults to ${defaults.tabWidth}.`, (value) => parseInt(value, 10), defaults.tabWidth)
     .option('--use-tabs', 'Indent lines with tabs instead of spaces.')
+    .option('--expand-users', 'Expand author and contributors into objects.')
     .option('--key-order <items>', 'Sort order for keys in package.json', (val) => val.split(','), defaults.keyOrder)
     .option('-l, --list-different', 'Print filenames of files that are different from prettier-package-json formatting.')
     .parse(process.argv);

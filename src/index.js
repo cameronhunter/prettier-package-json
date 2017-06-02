@@ -2,7 +2,7 @@
 const defaults = require('./defaultOptions');
 const sortObject = require('sort-object-keys');
 const sortScripts = require('./sort-scripts');
-const sortKeywords = require('./sort-keywords');
+const sortContributors = require('./sort-contributors');
 
 function stringify(object, options) {
   const space = options.useTabs ? '\t' : options.tabWidth;
@@ -15,8 +15,8 @@ function format(packageJson, opts) {
   const json = Object.assign(
     {},
     packageJson,
-    // 'author',
-    // 'contributors',
+    sortContributors('author', packageJson, opts),
+    sortContributors('contributors', packageJson, opts),
     sort('man', packageJson),
     sort('bin', packageJson),
     sort('files', packageJson),

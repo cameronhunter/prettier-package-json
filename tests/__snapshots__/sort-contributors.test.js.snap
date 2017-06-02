@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It expands users if requested 1`] = `
+"{
+  \\"author\\": {
+    \\"name\\": \\"Cameron\\",
+    \\"email\\": \\"cameron@email.com\\",
+    \\"url\\": \\"https://cameronhunter.co.uk\\"
+  },
+  \\"contributors\\": [
+    {
+      \\"name\\": \\"Adam\\",
+      \\"email\\": \\"adam@email.com\\"
+    },
+    {
+      \\"name\\": \\"Barry\\"
+    }
+  ]
+}"
+`;
+
+exports[`It orders contributors in alphabetical order 1`] = `
+"{
+  \\"contributors\\": [
+    \\"Adam <adam@email.com>\\",
+    \\"Barry\\",
+    \\"Cameron <cameron@email.com> (https://cameronhunter.co.uk)\\"
+  ]
+}"
+`;

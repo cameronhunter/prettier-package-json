@@ -1,6 +1,7 @@
 module.exports = Object.freeze({
   useTabs: false,
   tabWidth: 2,
+  expandUsers: false,
   keyOrder: [
     'private',
     'name',
