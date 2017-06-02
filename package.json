@@ -33,5 +33,8 @@
     "package.json",
     "prettier",
     "sort"
-  ]
+  ],
+  "engines": {
+    "node": ">= 6"
+  }
 }
