@@ -89,13 +89,15 @@ exit 1
 
 ### API
 
-The API has two functions, exported as `format` and `check`. `format` usage is as follows:
+The API has two functions, exported as `format` and `check`. Usage is as follows:
 
 ```js
-const prettier = require("prettier-package-json");
+const { format, check } = require("prettier-package-json");
 
 const options = {} // optional
-prettier.format(source, options);
+
+format(json, options);
+check(json, options);
 ```
 
 `check` checks to see if the file has been formatted with `prettier-package-json` given those options and returns a Boolean.
@@ -103,7 +105,7 @@ This is similar to the `--list-different` parameter in the CLI and is useful for
 
 ### Options
 
-Prettier ships with a handful of customizable format options, usable in both the CLI and API.
+`prettier-package-json` ships with a handful of customizable format options, usable in both the CLI and API.
 
 | Option | Default | CLI override | API override |
 | ------------- | ------------- | ------------- | ------------- |
