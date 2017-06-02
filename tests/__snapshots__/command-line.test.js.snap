@@ -23,6 +23,10 @@ Object {
         \\"bin\\": {
                 \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
         },
+        \\"files\\": [
+                \\"src\\",
+                \\"test\\"
+        ],
         \\"scripts\\": {
                 \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
                 \\"test\\": \\"jest\\"
@@ -63,6 +67,10 @@ Object {
 	\\"bin\\": {
 		\\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
 	},
+	\\"files\\": [
+		\\"src\\",
+		\\"test\\"
+	],
 	\\"scripts\\": {
 		\\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
 		\\"test\\": \\"jest\\"
@@ -103,6 +111,10 @@ Object {
   \\"bin\\": {
     \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
   },
+  \\"files\\": [
+    \\"src\\",
+    \\"test\\"
+  ],
   \\"scripts\\": {
     \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
     \\"test\\": \\"jest\\"
@@ -175,6 +187,10 @@ Object {
   \\"bin\\": {
     \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
   },
+  \\"files\\": [
+    \\"src\\",
+    \\"test\\"
+  ],
   \\"scripts\\": {
     \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
     \\"test\\": \\"jest\\"

@@ -2,6 +2,7 @@ const parse = require('parse-author');
 const sortObject = require('sort-object-keys');
 const orderBy = require('sort-order');
 
+// Sort by a field in an object
 const field = (name) => (...args) => {
   const [a, b] = args.map((obj) => obj[name]);
   if (a !== b) {

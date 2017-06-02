@@ -8,6 +8,7 @@ const testCommand = (cmdline, cb) => {
   const [command, ...args] = cmdline.split(' ');
 
   test(`${command} ${args.join(' ')}`, () => {
+    !cb && expect.assertions(1);
     return spawn(bin(command), args).then((result) => {
       if (cb) {
         cb(result);

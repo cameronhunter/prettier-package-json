@@ -3,6 +3,9 @@ module.exports = Object.freeze({
   tabWidth: 2,
   expandUsers: false,
   keyOrder: [
+    /**
+     * Details
+     */
     'private',
     'name',
     'description',
@@ -13,6 +16,10 @@ module.exports = Object.freeze({
     'repository',
     'bugs',
     'version',
+
+    /**
+     * Configuration
+     */
     'main',
     'man',
     'preferGlobal',
@@ -21,16 +28,34 @@ module.exports = Object.freeze({
     'directories',
     'scripts',
     'config',
+
+    /**
+     * Dependencies
+     */
+    'optionalDependencies',
     'dependencies',
+    'bundleDependencies',
     'bundledDependencies',
     'peerDependencies',
     'devDependencies',
-    'optionalDependencies',
+
+    /**
+     * Used for npm search
+     */
     'keywords',
+
+    /**
+     * Constraints
+     */
     'engines',
+    'engine-strict',
     'engineStrict',
     'os',
     'cpu',
+
+    /**
+     * Package publishing configuration
+     */
     'publishConfig'
   ]
 });

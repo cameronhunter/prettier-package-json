@@ -12,6 +12,15 @@
     "precommit": "./bin/prettier-package-json --write && git add package.json",
     "test": "jest"
   },
+  "files": [
+    "test",
+    "src/index.js",
+    "src",
+    "HISTORY",
+    "CHANGELOG.md",
+    "readme.md",
+    "package-lock.json"
+  ],
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^3.0.1",
