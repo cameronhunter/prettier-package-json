@@ -10,15 +10,16 @@
   },
   "scripts": {
     "precommit": "./bin/prettier-package-json --write && git add package.json",
+    "test": "jest",
     "preversion": "npm test",
-    "version": "git push && git push --tags",
-    "test": "jest"
+    "version": "git push && git push --tags"
   },
   "dependencies": {
     "commander": "^2.9.0",
     "fs-extra": "^3.0.1",
     "glob": "^7.1.2",
-    "sort-object-keys": "^1.1.2"
+    "sort-object-keys": "^1.1.2",
+    "sort-order": "^1.0.1"
   },
   "devDependencies": {
     "cross-spawn": "^5.1.0",
@@ -26,9 +27,9 @@
     "jest": "^20.0.4"
   },
   "keywords": [
-    "prettier",
-    "package.json",
     "formatter",
+    "package.json",
+    "prettier",
     "sort"
   ]
 }

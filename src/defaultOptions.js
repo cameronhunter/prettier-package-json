@@ -13,6 +13,7 @@ module.exports = Object.freeze({
     'main',
     'bin',
     'scripts',
+    'config',
     'dependencies',
     'peerDependencies',
     'devDependencies',

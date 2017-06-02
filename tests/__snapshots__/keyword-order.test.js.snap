@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It orders keywords in alphabetical order 1`] = `
+"{
+  \\"keywords\\": [
+    \\"a\\",
+    \\"b\\",
+    \\"c\\"
+  ]
+}"
+`;

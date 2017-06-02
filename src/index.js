@@ -1,6 +1,8 @@
 
 const defaults = require('./defaultOptions');
 const sortObject = require('sort-object-keys');
+const sortScripts = require('./sort-scripts');
+const sortKeywords = require('./sort-keywords');
 
 function stringify(object, options) {
   const space = options.useTabs ? '\t' : options.tabWidth;
@@ -9,13 +11,23 @@ function stringify(object, options) {
 
 function format(packageJson, opts) {
   const options = Object.assign({}, defaults, opts);
-  return stringify(sortObject(packageJson, options.keyOrder), options);
+
+  const json = Object.assign(
+    {},
+    packageJson,
+    sortScripts(packageJson.scripts),
+    sortKeywords(packageJson.keywords)
+  );
+
+  return stringify(sortObject(json, options.keyOrder), options);
 }
 
 function check(packageJson, opts) {
   try {
     const options = Object.assign({}, defaults, opts);
-    const object = typeof packageJson === 'string' ? JSON.parse(packageJson) : packageJson;
+    const isString = typeof packageJson === 'string';
+    const object = isString ? JSON.parse(packageJson) : packageJson;
+    const original = isString ? packageJson : stringify(object, options);
     const formatted = format(object, options);
     return stringify(object, options) === formatted;
   } catch(e) {
