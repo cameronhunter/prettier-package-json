@@ -7,7 +7,7 @@ const sortFiles = require('./sort-files');
 
 function stringify(object, options) {
   const space = options.useTabs ? '\t' : options.tabWidth;
-  return JSON.stringify(object, null, space);
+  return JSON.stringify(object, null, space) + '\n';
 }
 
 function format(packageJson, opts) {
