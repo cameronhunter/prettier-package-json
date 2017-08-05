@@ -16,7 +16,8 @@ exports[`It expands users if requested 1`] = `
       \\"name\\": \\"Barry\\"
     }
   ]
-}"
+}
+"
 `;
 
 exports[`It orders contributors in alphabetical order 1`] = `
@@ -26,5 +27,6 @@ exports[`It orders contributors in alphabetical order 1`] = `
     \\"Barry\\",
     \\"Cameron <cameron@email.com> (https://cameronhunter.co.uk)\\"
   ]
-}"
+}
+"
 `;
