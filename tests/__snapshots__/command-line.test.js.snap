@@ -49,6 +49,7 @@ Object {
                 \\"sort\\"
         ]
 }
+
 ",
 }
 `;
@@ -93,6 +94,7 @@ Object {
 		\\"sort\\"
 	]
 }
+
 ",
 }
 `;
@@ -137,6 +139,7 @@ Object {
     \\"sort\\"
   ]
 }
+
 {
   \\"name\\": \\"prettier-package-json\\",
   \\"description\\": \\"Prettier formatter for package.json files\\",
@@ -169,6 +172,7 @@ Object {
     \\"sort\\"
   ]
 }
+
 ",
 }
 `;
@@ -213,6 +217,7 @@ Object {
     \\"sort\\"
   ]
 }
+
 ",
 }
 `;

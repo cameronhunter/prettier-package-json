@@ -5,7 +5,8 @@ exports[`It indents using 2 spaces (default) 1`] = `
   \\"name\\": \\"Test\\",
   \\"description\\": \\"Description\\",
   \\"version\\": \\"0.0.0\\"
-}"
+}
+"
 `;
 
 exports[`It indents using the specified tab width 1`] = `
@@ -13,5 +14,6 @@ exports[`It indents using the specified tab width 1`] = `
     \\"name\\": \\"Test\\",
     \\"description\\": \\"Description\\",
     \\"version\\": \\"0.0.0\\"
-}"
+}
+"
 `;
