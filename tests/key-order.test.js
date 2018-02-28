@@ -20,6 +20,24 @@ test('It orders keys using the specified key order', () => {
   expect(format(json, { keyOrder: ['name', 'version', 'description'] })).toMatchSnapshot();
 });
 
+test('It orders keys using a custom key order function', () => {
+  const json = {
+    description: 'Description',
+    version: '0.0.0',
+    name: 'Test'
+  };
+
+  const keyOrder = (keyA, keyB) => {
+    if (keyA === keyB) {
+      return 0;
+    } else {
+      return keyA < keyB ? -1 : 1;
+    }
+  };
+
+  expect(format(json, { keyOrder })).toMatchSnapshot();
+});
+
 test('It orders scripts in alphabetical order, keeping pre and post scripts beside their counterparts', () => {
   const json = {
     scripts: {

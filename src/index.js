@@ -1,4 +1,3 @@
-
 const defaults = require('./defaultOptions');
 const sortObject = require('sort-object-keys');
 const sortScripts = require('./sort-scripts');

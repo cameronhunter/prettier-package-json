@@ -252,7 +252,7 @@ This is similar to the `--list-different` parameter in the CLI and is useful for
 | **Tab Width** - Specify the number of spaces per indentation-level. | `2` | `--tab-width <int>` | `tabWidth: <int>` |
 | **Tabs** - Indent lines with tabs instead of spaces. | `false` | `--use-tabs` | `useTabs: <bool>` |
 | **Expand Users** - Expand author and contributors into objects. | `false` | `--expand-users` | `expandUsers: <bool>` |
-| **Key Order** - Specify the order of keys. | See [default options](https://github.com/cameronhunter/prettier-package-json/blob/master/src/defaultOptions.js) | `--key-order <comma,separated,list...>` | `keyOrder: <array>` |
+| **Key Order** - Specify the order of keys. | See [default options](https://github.com/cameronhunter/prettier-package-json/blob/master/src/defaultOptions.js) | `--key-order <comma,separated,list...>` | `keyOrder: <array|function>` |
 
 ## Contributing
 
