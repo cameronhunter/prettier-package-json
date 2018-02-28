@@ -20,6 +20,18 @@ test('It orders keys using the specified key order', () => {
   expect(format(json, { keyOrder: ['name', 'version', 'description'] })).toMatchSnapshot();
 });
 
+test('It orders unspecified keys alphabetically at the end', () => {
+  const json = {
+    unknownPropertyB: false,
+    unknownPropertyA: true,
+    description: 'Description',
+    version: '0.0.0',
+    name: 'Test'
+  };
+
+  expect(format(json, { keyOrder: ['name', 'version', 'description'] })).toMatchSnapshot();
+});
+
 test('It orders keys using a custom key order function', () => {
   const json = {
     description: 'Description',

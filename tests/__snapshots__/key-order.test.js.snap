@@ -39,3 +39,14 @@ exports[`It orders scripts in alphabetical order, keeping pre and post scripts b
 }
 "
 `;
+
+exports[`It orders unspecified keys alphabetically at the end 1`] = `
+"{
+  \\"name\\": \\"Test\\",
+  \\"version\\": \\"0.0.0\\",
+  \\"description\\": \\"Description\\",
+  \\"unknownPropertyA\\": true,
+  \\"unknownPropertyB\\": false
+}
+"
+`;
