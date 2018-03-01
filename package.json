@@ -34,7 +34,12 @@
     "jest": "^20.0.4"
   },
   "keywords": [
+    "cleanup",
     "formatter",
+    "json",
+    "keys",
+    "object",
+    "package",
     "package.json",
     "prettier",
     "sort"
