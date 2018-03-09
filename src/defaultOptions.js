@@ -19,6 +19,11 @@ module.exports = Object.freeze({
     'version',
 
     /**
+     * Yarn specific
+     */
+    'workspaces',
+
+    /**
      * Configuration
      */
     'main',
