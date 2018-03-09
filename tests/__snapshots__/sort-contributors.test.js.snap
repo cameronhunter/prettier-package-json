@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Enforces contributors and maintainers to be arrays 1`] = `
+"{
+  \\"author\\": \\"Cameron <cameron@email.com> (https://cameronhunter.co.uk)\\",
+  \\"maintainers\\": [
+    \\"Adam <adam@email.com>\\"
+  ],
+  \\"contributors\\": [
+    \\"Barry\\"
+  ]
+}
+"
+`;
+
 exports[`It expands users if requested 1`] = `
 "{
   \\"author\\": {

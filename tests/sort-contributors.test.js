@@ -23,3 +23,17 @@ test('It expands users if requested', () => {
 
   expect(format(json, { expandUsers: true })).toMatchSnapshot();
 });
+
+test('Enforces contributors and maintainers to be arrays', () => {
+  const json = {
+    author: 'Cameron <cameron@email.com> (https://cameronhunter.co.uk)',
+    maintainers: [
+      'Adam <adam@email.com>'
+    ],
+    contributors: [
+      'Barry'
+    ],
+  };
+
+  expect(format(json)).toMatchSnapshot();
+});
