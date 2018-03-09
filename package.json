@@ -8,7 +8,7 @@
     "url": "https://github.com/cameronhunter/prettier-package-json"
   },
   "bugs": "https://github.com/cameronhunter/prettier-package-json/issues",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "src/index.js",
   "bin": {
     "prettier-package-json": "./bin/prettier-package-json"
