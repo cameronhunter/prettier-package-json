@@ -5,6 +5,7 @@ Object {
   "exitCode": 0,
   "stderr": "",
   "stdout": "tests/__fixtures__/package-1.json
+tests/__fixtures__/package-2.json
 ",
 }
 `;
@@ -16,8 +17,8 @@ Object {
   "stdout": "{
         \\"name\\": \\"prettier-package-json\\",
         \\"description\\": \\"Prettier formatter for package.json files\\",
-        \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
         \\"license\\": \\"MIT\\",
+        \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
         \\"version\\": \\"1.0.1\\",
         \\"main\\": \\"src/index.js\\",
         \\"bin\\": {
@@ -61,8 +62,8 @@ Object {
   "stdout": "{
 	\\"name\\": \\"prettier-package-json\\",
 	\\"description\\": \\"Prettier formatter for package.json files\\",
-	\\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
 	\\"license\\": \\"MIT\\",
+	\\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
 	\\"version\\": \\"1.0.1\\",
 	\\"main\\": \\"src/index.js\\",
 	\\"bin\\": {
@@ -106,8 +107,8 @@ Object {
   "stdout": "{
   \\"name\\": \\"prettier-package-json\\",
   \\"description\\": \\"Prettier formatter for package.json files\\",
-  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
   \\"license\\": \\"MIT\\",
+  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
   \\"version\\": \\"1.0.1\\",
   \\"main\\": \\"src/index.js\\",
   \\"bin\\": {
@@ -143,8 +144,8 @@ Object {
 {
   \\"name\\": \\"prettier-package-json\\",
   \\"description\\": \\"Prettier formatter for package.json files\\",
-  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
   \\"license\\": \\"MIT\\",
+  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
   \\"version\\": \\"1.0.1\\",
   \\"main\\": \\"src/index.js\\",
   \\"bin\\": {
@@ -184,8 +185,8 @@ Object {
   "stdout": "{
   \\"name\\": \\"prettier-package-json\\",
   \\"description\\": \\"Prettier formatter for package.json files\\",
-  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
   \\"license\\": \\"MIT\\",
+  \\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
   \\"version\\": \\"1.0.1\\",
   \\"main\\": \\"src/index.js\\",
   \\"bin\\": {
