@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/cameronhunter/prettier-package-json.svg?branch=master)](https://travis-ci.org/cameronhunter/prettier-package-json) [![npm](https://img.shields.io/npm/v/prettier-package-json.svg)](https://www.npmjs.com/package/prettier-package-json)
 
-`prettier-package-json` is an opinionated JSON formatter inspired by `prettier`. It removes all original styling and ensures that the outputted `package.json` conforms to a consistent style.
+`prettier-package-json` is a JSON formatter inspired by `prettier`. It removes all original styling and ensures that the outputted `package.json` conforms to a consistent style. By default it uses opinionated defaults but can be configured to your individual needs.
 
 ## Features
 
