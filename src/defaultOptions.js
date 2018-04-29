@@ -27,6 +27,8 @@ module.exports = Object.freeze({
      * Configuration
      */
     'main',
+    'module',
+    'browser',
     'man',
     'preferGlobal',
     'bin',
