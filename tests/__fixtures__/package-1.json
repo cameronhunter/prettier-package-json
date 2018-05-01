@@ -5,6 +5,8 @@
   "version": "1.0.1",
   "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
   "main": "src/index.js",
+  "module": "src/index.mjs",
+  "browser": "src/index.browser.js",
   "bin": {
     "prettier-package-json": "./bin/prettier-package-json"
   },
