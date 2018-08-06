@@ -32,8 +32,10 @@ if (cmdline.listDifferent) {
     details.forEach(({ filepath, isDifferent, error }) => {
       if (error) {
         console.error(error);
+        process.exitCode = 1;
       } else if (isDifferent) {
         console.log(filepath);
+        process.exitCode = 1;
       }
     });
   });

@@ -4,18 +4,19 @@ const path = require('path');
 const bin = (command) => path.relative(process.cwd(), path.join(__dirname, '..', 'bin', command));
 const fixture = (name) => path.relative(process.cwd(), path.join(__dirname, '__fixtures__', name));
 
-const testCommand = (cmdline, cb) => {
+
+const testCommand = (cmdline) => {
   const [command, ...args] = cmdline.split(' ');
 
   test(`${command} ${args.join(' ')}`, () => {
-    !cb && expect.assertions(1);
-    return spawn(bin(command), args).then((result) => {
-      if (cb) {
-        cb(result);
-      } else {
+    return spawn(bin(command), args).then(
+      result => {
         expect(result).toMatchSnapshot();
+      },
+      result => {
+          expect(result).toMatchSnapshot();
       }
-    });
+    );
   });
 };
 
