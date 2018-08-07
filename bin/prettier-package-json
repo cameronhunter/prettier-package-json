@@ -35,7 +35,7 @@ if (cmdline.listDifferent) {
         process.exitCode = 1;
       } else if (isDifferent) {
         console.log(filepath);
-        process.exitCode = 1;
+        process.exitCode = 2;
       }
     });
   });
