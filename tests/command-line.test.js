@@ -26,3 +26,4 @@ testCommand(`prettier-package-json --tab-width 8 ${fixture('package-1.json')}`);
 testCommand(`prettier-package-json ${fixture('package-*.json')}`);
 testCommand(`prettier-package-json --list-different ${fixture('package-*.json')}`);
 testCommand(`prettier-package-json --list-different ${fixture('missing.json')}`);
+testCommand(`prettier-package-json --list-different ${fixture('invalid.json')}`);

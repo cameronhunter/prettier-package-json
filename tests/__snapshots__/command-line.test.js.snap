@@ -8,6 +8,19 @@ Object {
 }
 `;
 
+exports[`prettier-package-json --list-different tests/__fixtures__/invalid.json 1`] = `
+Object {
+  "exitCode": 1,
+  "stderr": "SyntaxError: tests/__fixtures__/invalid.json: Unexpected token t in JSON at position 6
+    at JSON.parse (<anonymous>)
+    at /Users/jz/WebServer/_os/cameronhunter/prettier-package-json/node_modules/jsonfile/index.js:36:18
+    at /Users/jz/WebServer/_os/cameronhunter/prettier-package-json/node_modules/graceful-fs/graceful-fs.js:78:16
+    at FSReqWrap.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:53:3)
+",
+  "stdout": "",
+}
+`;
+
 exports[`prettier-package-json --list-different tests/__fixtures__/package-*.json 1`] = `
 Object {
   "exitCode": 2,
