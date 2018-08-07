@@ -62,13 +62,7 @@ function globToPaths(arg) {
 }
 
 function format(filepath, options) {
-  return fs.pathExists(filepath).then((exists) => {
-    if (exists) {
-      return fs.readJson(filepath);
-    } else {
-      return Promise.reject(`${filepath} doesn't exist`);
-    }
-  }).then((json) => {
+  return fs.readJson(filepath).then((json) => {
     return prettier.format(json, options);
   }).then((json) => {
     return { filepath, json };
@@ -78,13 +72,7 @@ function format(filepath, options) {
 }
 
 function check(filepath, options) {
-  return fs.pathExists(filepath).then((exists) => {
-    if (exists) {
-      return fs.readJson(filepath);
-    } else {
-      return Promise.reject(`${filepath} doesn't exist`);
-    }
-  }).then((json) => {
+  return fs.readJson(filepath).then((json) => {
     return prettier.check(json, options);
   }).then((isSame) => {
     return { filepath, isDifferent: !isSame };

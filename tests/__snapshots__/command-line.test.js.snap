@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`prettier-package-json --list-different tests/__fixtures__/missing.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "",
+}
+`;
+
 exports[`prettier-package-json --list-different tests/__fixtures__/package-*.json 1`] = `
 Object {
   "exitCode": 0,
