@@ -234,7 +234,7 @@ The API has two functions, exported as `format` and `check`. Usage is as follows
 ```js
 const { format, check } = require("prettier-package-json");
 
-const options = {} // optional
+const options = {}; // optional
 
 format(json, options);
 check(json, options);
