@@ -4,7 +4,6 @@ const path = require('path');
 const bin = (command) => path.relative(process.cwd(), path.join(__dirname, '..', 'bin', command));
 const fixture = (name) => path.relative(process.cwd(), path.join(__dirname, '__fixtures__', name));
 
-
 const testCommand = (cmdline, cb) => {
   const [command, ...args] = cmdline.split(' ');
   const matcher = cb
