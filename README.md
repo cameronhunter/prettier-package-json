@@ -243,6 +243,19 @@ check(json, options);
 `check` checks to see if the file has been formatted with `prettier-package-json` given those options and returns a Boolean.
 This is similar to the `--list-different` parameter in the CLI and is useful for running in CI scenarios.
 
+### CI
+
+For usage in CI scenarios, you can use the `--list-different` CLI flag. The command will list all invalid files and return
+with a proper default error code, so that in case of an error or invalid file the build pipeline automatically fails.
+
+These are the status codes:
+
+*   `0`: all files valid, no error occured.
+*   `1`: an error ocurred, for example a JSON parse error. See message on `stderr` for details.
+*   `2`: not all files are valid.
+
+These exit codes are only set when in `--list-different` mode.
+
 ### Options
 
 `prettier-package-json` ships with a handful of customizable format options, usable in both the CLI and API.
