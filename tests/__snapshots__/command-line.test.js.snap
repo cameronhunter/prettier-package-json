@@ -10,7 +10,7 @@ Object {
 
 exports[`prettier-package-json --list-different tests/__fixtures__/package-*.json 1`] = `
 Object {
-  "exitCode": 0,
+  "exitCode": 2,
   "stderr": "",
   "stdout": "tests/__fixtures__/package-1.json
 tests/__fixtures__/package-2.json
