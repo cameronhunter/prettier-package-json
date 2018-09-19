@@ -13,6 +13,10 @@
   "bin": {
     "prettier-package-json": "./bin/prettier-package-json"
   },
+  "files": [
+    "bin",
+    "src"
+  ],
   "scripts": {
     "precommit": "./bin/prettier-package-json --write && git add package.json",
     "test": "jest",
