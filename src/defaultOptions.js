@@ -36,6 +36,8 @@ module.exports = Object.freeze({
     'directories',
     'scripts',
     'config',
+    'types',
+    'typings',
 
     /**
      * Dependencies
