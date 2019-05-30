@@ -36,6 +36,7 @@ module.exports = Object.freeze({
     'directories',
     'scripts',
     'config',
+    'sideEffects',
     'types',
     'typings',
 
