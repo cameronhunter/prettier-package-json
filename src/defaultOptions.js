@@ -6,6 +6,7 @@ module.exports = Object.freeze({
     /**
      * Details
      */
+    '$schema',
     'private',
     'name',
     'description',
@@ -17,6 +18,7 @@ module.exports = Object.freeze({
     'repository',
     'bugs',
     'version',
+    'type',
 
     /**
      * Yarn specific
