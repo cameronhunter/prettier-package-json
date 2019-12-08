@@ -48,7 +48,7 @@
     "sort"
   ],
   "engines": {
-    "node": ">= 6"
+    "node": ">= 10"
   },
   "husky": {
     "hooks": {
