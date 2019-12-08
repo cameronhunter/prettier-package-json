@@ -47,9 +47,6 @@
     "prettier",
     "sort"
   ],
-  "engines": {
-    "node": ">= 10"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "./bin/prettier-package-json --write && git add package.json"
