@@ -18,7 +18,6 @@
     "src"
   ],
   "scripts": {
-    "precommit": "./bin/prettier-package-json --write && git add package.json",
     "test": "jest",
     "preversion": "npm test",
     "version": "git push && git push --tags"
@@ -50,5 +49,10 @@
   ],
   "engines": {
     "node": ">= 6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./bin/prettier-package-json --write && git add package.json"
+    }
   }
 }
