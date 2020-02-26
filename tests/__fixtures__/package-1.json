@@ -15,9 +15,9 @@
     "test": "jest"
   },
   "files": [
-    "test",
+    "test/",
     "src/index.js",
-    "src",
+    "src/",
     "HISTORY",
     "CHANGELOG.md",
     "readme.md",

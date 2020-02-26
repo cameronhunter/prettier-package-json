@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It orders files in alphabetical order, directories first 1`] = `
+"{
+  \\"files\\": [
+    \\"bin/\\",
+    \\"lib/\\",
+    \\"IMPORTANT.md\\"
+  ]
+}
+"
+`;
+
+exports[`It orders files in alphabetical order, exclusions last 1`] = `
+"{
+  \\"files\\": [
+    \\"bin/\\",
+    \\"lib/\\",
+    \\"!bin/secret.text\\",
+    \\"!lib/**/*.test.js\\"
+  ]
+}
+"
+`;
+
+exports[`It removes always excluded entries from files 1`] = `
+"{
+  \\"files\\": [
+    \\"bin/\\",
+    \\"lib/\\"
+  ]
+}
+"
+`;
+
+exports[`It removes always included entries from files 1`] = `
+"{
+  \\"files\\": [
+    \\"bin/\\",
+    \\"lib/\\"
+  ]
+}
+"
+`;

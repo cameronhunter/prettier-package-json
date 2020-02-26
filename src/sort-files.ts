@@ -49,8 +49,26 @@ export default function sortFiles(packageJson: PackageJson): { files?: PackageJs
 
   const isPackageMain = (filepath: string) => filepath === main;
   const ignored = or(ALWAYS_INCLUDED, ALWAYS_EXCLUDED, isPackageMain);
+  const directoriesFirst = (a: string, b: string) => {
+    if (a.endsWith('/') && !b.endsWith('/')) {
+      return -1;
+    } else if (!a.endsWith('/') && b.endsWith('/')) {
+      return 1;
+    } else {
+      return 0;
+    }
+  };
+  const exclusionsLast = (a: string, b: string) => {
+    if (a.startsWith('!') && !b.startsWith('!')) {
+      return 1;
+    } else if (!a.startsWith('!') && b.startsWith('!')) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
 
-  const sortedAndFilteredFiles = files.filter(not(ignored)).sort();
+  const sortedAndFilteredFiles = files.filter(not(ignored)).sort().sort(directoriesFirst).sort(exclusionsLast);
 
   return sortedAndFilteredFiles.length > 0 ? { files: sortedAndFilteredFiles } : {};
 }
