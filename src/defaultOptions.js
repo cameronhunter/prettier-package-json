@@ -50,6 +50,7 @@ module.exports = Object.freeze({
     'bundleDependencies',
     'bundledDependencies',
     'peerDependencies',
+    'peerDependenciesMeta',
     'devDependencies',
 
     /**
