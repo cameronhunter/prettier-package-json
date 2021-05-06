@@ -11,6 +11,7 @@ export const defaultOptions: Options = {
     '$schema',
     'private',
     'name',
+    'version',
     'description',
     'license',
     'author',
@@ -19,13 +20,7 @@ export const defaultOptions: Options = {
     'homepage',
     'repository',
     'bugs',
-    'version',
     'type',
-
-    /**
-     * Yarn specific
-     */
-    'workspaces',
 
     /**
      * Configuration
@@ -45,13 +40,19 @@ export const defaultOptions: Options = {
     'typings',
 
     /**
+     * Yarn specific
+     */
+    'workspaces',
+    'resolutions',
+
+    /**
      * Dependencies
      */
-    'optionalDependencies',
     'dependencies',
     'bundleDependencies',
     'bundledDependencies',
     'peerDependencies',
+    'optionalDependencies',
     'devDependencies',
 
     /**
