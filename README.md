@@ -27,10 +27,10 @@ Output:
 ```json
 {
   "name": "prettier-package-json",
+  "version": "1.0.1",
   "description": "Prettier formatter for package.json files",
   "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
-  "license": "MIT",
-  "version": "1.0.1"
+  "license": "MIT"
 }
 ```
 

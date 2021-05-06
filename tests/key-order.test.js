@@ -17,7 +17,7 @@ test('It orders keys using the specified key order', () => {
     name: 'Test'
   };
 
-  expect(format(json, { keyOrder: ['name', 'version', 'description'] })).toMatchSnapshot();
+  expect(format(json, { keyOrder: ['name', 'description', 'version'] })).toMatchSnapshot();
 });
 
 test('It orders unspecified keys alphabetically at the end', () => {

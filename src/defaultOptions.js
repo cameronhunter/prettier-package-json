@@ -9,6 +9,7 @@ module.exports = Object.freeze({
     '$schema',
     'private',
     'name',
+    'version',
     'description',
     'license',
     'author',
@@ -17,7 +18,6 @@ module.exports = Object.freeze({
     'homepage',
     'repository',
     'bugs',
-    'version',
     'type',
 
     /**

@@ -12,8 +12,8 @@ exports[`It orders keys using a custom key order function 1`] = `
 exports[`It orders keys using the default key order 1`] = `
 "{
   \\"name\\": \\"Test\\",
-  \\"description\\": \\"Description\\",
-  \\"version\\": \\"0.0.0\\"
+  \\"version\\": \\"0.0.0\\",
+  \\"description\\": \\"Description\\"
 }
 "
 `;
@@ -21,8 +21,8 @@ exports[`It orders keys using the default key order 1`] = `
 exports[`It orders keys using the specified key order 1`] = `
 "{
   \\"name\\": \\"Test\\",
-  \\"version\\": \\"0.0.0\\",
-  \\"description\\": \\"Description\\"
+  \\"description\\": \\"Description\\",
+  \\"version\\": \\"0.0.0\\"
 }
 "
 `;

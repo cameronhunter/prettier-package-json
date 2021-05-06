@@ -1,5 +1,6 @@
 {
   "name": "prettier-package-json",
+  "version": "2.1.3",
   "description": "Prettier formatter for package.json files",
   "license": "MIT",
   "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
@@ -8,7 +9,6 @@
     "url": "https://github.com/cameronhunter/prettier-package-json"
   },
   "bugs": "https://github.com/cameronhunter/prettier-package-json/issues",
-  "version": "2.1.3",
   "main": "src/index.js",
   "bin": {
     "prettier-package-json": "./bin/prettier-package-json"
