@@ -52,6 +52,7 @@ export const defaultOptions: Options = {
     'bundleDependencies',
     'bundledDependencies',
     'peerDependencies',
+    'peerDependenciesMeta',
     'optionalDependencies',
     'devDependencies',
 
