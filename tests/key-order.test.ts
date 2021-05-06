@@ -1,4 +1,4 @@
-const { format } = require('../src');
+import { format } from '../src';
 
 test('It orders keys using the default key order', () => {
   const json = {
@@ -39,7 +39,7 @@ test('It orders keys using a custom key order function', () => {
     name: 'Test'
   };
 
-  const keyOrder = (keyA, keyB) => {
+  const keyOrder = (keyA: string, keyB: string) => {
     if (keyA === keyB) {
       return 0;
     } else {

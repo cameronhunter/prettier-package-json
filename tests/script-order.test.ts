@@ -1,4 +1,4 @@
-const { format } = require('../src');
+import { format } from '../src';
 
 test('It orders scripts in alphabetical order, keeping pre and post scripts beside their counterparts', () => {
   const json = {

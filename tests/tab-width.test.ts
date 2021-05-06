@@ -1,4 +1,4 @@
-const { format } = require('../src');
+import { format } from '../src/index';
 
 test('It indents using 2 spaces (default)', () => {
   const json = {

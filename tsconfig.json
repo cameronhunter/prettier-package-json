@@ -1,0 +1,16 @@
+{
+  "include": [
+    "src",
+    "tests"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "outDir": "build",
+    "declaration": true
+  }
+}

@@ -1,4 +1,6 @@
-module.exports = Object.freeze({
+import { Options } from './types';
+
+export const defaultOptions: Options = {
   useTabs: false,
   tabWidth: 2,
   expandUsers: false,
@@ -61,7 +63,6 @@ module.exports = Object.freeze({
      * Constraints
      */
     'engines',
-    'engine-strict',
     'engineStrict',
     'os',
     'cpu',
@@ -71,4 +72,4 @@ module.exports = Object.freeze({
      */
     'publishConfig'
   ]
-});
+};

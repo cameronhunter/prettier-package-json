@@ -5,12 +5,13 @@
  *   https://docs.npmjs.com/files/package.json#files
  */
 
-const sortObject = require('sort-object-keys');
-const orderBy = require('sort-order');
-const minimatch = require('minimatch');
+import minimatch from 'minimatch';
+import { PackageJson } from './types';
 
-const not = (filterFn) => (...args) => !filterFn(...args);
-const or = (...filterFns) => (...args) => filterFns.some((fn) => fn(...args));
+type FilterFn<T> = (...args: T[]) => boolean;
+
+const not = <T>(filterFn: FilterFn<T>) => (arg: T) => !filterFn(arg);
+const or = <T>(...filterFns: FilterFn<T>[]) => (arg: T) => filterFns.some((fn) => fn(arg));
 
 const ALWAYS_INCLUDED = [
   /^package.json$/,
@@ -19,11 +20,9 @@ const ALWAYS_INCLUDED = [
   /^HISTORY.*/i,
   /^LICEN(C|S)E.*/i,
   /^NOTICE.*/i
-].map((regex) => {
-  return (filepath) => regex.test(filepath);
-}).reduce((a, b) => {
-  return or(a, b);
-});
+]
+  .map((regex) => (filepath: string) => regex.test(filepath))
+  .reduce((a, b) => or(a, b));
 
 const ALWAYS_EXCLUDED = [
   '.git',
@@ -41,19 +40,17 @@ const ALWAYS_EXCLUDED = [
   'config.gypi',
   '*.orig',
   'package-lock.json'
-].map((glob) => {
-  return minimatch.filter(glob);
-}).reduce((a, b) => {
-  return or(a, b);
-});
+]
+  .map((glob) => (minimatch.filter(glob) as any) as FilterFn<string>)
+  .reduce((a, b) => or(a, b));
 
-module.exports = function sortFiles(packageJson) {
+export default function sortFiles(packageJson: PackageJson): { files?: PackageJson['files'] } {
   const { files = [], main } = packageJson;
 
-  const isPackageMain = (filepath) => filepath === main;
+  const isPackageMain = (filepath: string) => filepath === main;
   const ignored = or(ALWAYS_INCLUDED, ALWAYS_EXCLUDED, isPackageMain);
 
   const sortedAndFilteredFiles = files.filter(not(ignored)).sort();
 
   return sortedAndFilteredFiles.length > 0 ? { files: sortedAndFilteredFiles } : {};
-};
+}

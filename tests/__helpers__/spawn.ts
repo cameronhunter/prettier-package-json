@@ -1,11 +1,11 @@
-const spawn = require('cross-spawn');
+import { spawn } from 'cross-spawn';
 
-const defaults = {
-  stdio: 'pipe'
-};
+const options = { stdio: 'pipe' } as const;
 
-module.exports = (command, args, opts) => {
-  const options = Object.assign({}, defaults, opts);
+export default function (
+  command: string,
+  args: string[]
+): Promise<{ stdout: string; stderr: string; exitCode: number | null; error?: Error }> {
   return new Promise((resolve, reject) => {
     try {
       const proc = spawn(command, args, options);
@@ -28,8 +28,8 @@ module.exports = (command, args, opts) => {
       proc.on('error', (error) => {
         reject({ stdout, stderr, error });
       });
-    } catch(error) {
+    } catch (error) {
       reject({ error });
     }
   });
-};
+}
