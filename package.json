@@ -20,7 +20,6 @@
   "scripts": {
     "build": "tsc",
     "format": "./bin/prettier-package-json --write",
-    "postinstall": "yarn build",
     "test": "jest",
     "preversion": "yarn build && yarn test --ci",
     "version": "git push && git push --tags"
