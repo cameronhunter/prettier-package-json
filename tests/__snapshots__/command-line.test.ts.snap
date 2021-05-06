@@ -1,5 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`prettier-package-json --config tests/__fixtures__/prettier-package-json.config.js tests/__fixtures__/package-1.json 1`] = `
+Object {
+  "exitCode": 0,
+  "stderr": "",
+  "stdout": "{
+	\\"main\\": \\"src/index.js\\",
+	\\"author\\": \\"Cameron Hunter <hello@cameronhunter.co.uk>\\",
+	\\"bin\\": {
+		\\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
+	},
+	\\"browser\\": \\"src/index.browser.js\\",
+	\\"dependencies\\": {
+		\\"commander\\": \\"^2.9.0\\",
+		\\"fs-extra\\": \\"^3.0.1\\",
+		\\"glob\\": \\"^7.1.2\\",
+		\\"sort-object-keys\\": \\"^1.1.2\\"
+	},
+	\\"description\\": \\"Prettier formatter for package.json files\\",
+	\\"devDependencies\\": {
+		\\"cross-spawn\\": \\"^5.1.0\\",
+		\\"husky\\": \\"^0.13.4\\",
+		\\"jest\\": \\"^20.0.4\\"
+	},
+	\\"files\\": [
+		\\"src\\",
+		\\"test\\"
+	],
+	\\"keywords\\": [
+		\\"formatter\\",
+		\\"package.json\\",
+		\\"prettier\\",
+		\\"sort\\"
+	],
+	\\"license\\": \\"MIT\\",
+	\\"module\\": \\"src/index.mjs\\",
+	\\"name\\": \\"prettier-package-json\\",
+	\\"scripts\\": {
+		\\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
+		\\"test\\": \\"jest\\"
+	},
+	\\"version\\": \\"1.0.1\\"
+}
+
+",
+}
+`;
+
 exports[`prettier-package-json --list-different tests/__fixtures__/missing.json 1`] = `
 Object {
   "exitCode": 0,

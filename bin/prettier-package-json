@@ -4,9 +4,10 @@ const cmdline = require('commander');
 const fs = require('fs-extra');
 const path = require('path');
 const prettier = require('../build');
-const { version } = require('../package.json');
+const { name, version } = require('../package.json');
 const defaults = require('../build/defaultOptions');
 const glob = require('glob');
+const { cosmiconfigSync } = require('cosmiconfig');
 
 cmdline
   .version(version)
@@ -22,6 +23,7 @@ cmdline
   .option('--expand-users', 'Expand author and contributors into objects.')
   .option('--key-order <items>', 'Sort order for keys in package.json', (val) => val.split(','), defaults.keyOrder)
   .option('-l, --list-different', 'Print filenames of files that are different from prettier-package-json formatting.')
+  .option('--config <filepath>', 'Load configuration from a file')
   .parse(process.argv);
 
 const globs = cmdline.args.length > 0 ? cmdline.args : [path.join(process.cwd(), 'package.json')];
@@ -30,10 +32,13 @@ const files = Promise.all(globs.map(globToPaths)).then((matches) => {
   return matches.reduce((state, match) => [...state, ...match], []);
 });
 
+const explorer = cosmiconfigSync(name);
+const options = cmdline.config ? explorer.load(cmdline.config).config : cmdline;
+
 if (cmdline.listDifferent) {
   files
     .then((paths) => {
-      return Promise.all(paths.map((filepath) => check(filepath, cmdline)));
+      return Promise.all(paths.map((filepath) => check(filepath, options)));
     })
     .then((details) => {
       details.forEach(({ filepath, isDifferent, error }) => {
@@ -49,7 +54,7 @@ if (cmdline.listDifferent) {
 } else {
   files
     .then((paths) => {
-      return Promise.all(paths.map((filepath) => format(filepath, cmdline)));
+      return Promise.all(paths.map((filepath) => format(filepath, options)));
     })
     .then((details) => {
       details.forEach(({ filepath, json, error }) => {

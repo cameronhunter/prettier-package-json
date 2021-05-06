@@ -86,10 +86,7 @@ Input:
     "email": "hello@cameronhunter.co.uk",
     "url": "https://cameronhunter.co.uk"
   },
-  "contributors": [
-    "Barry",
-    "Adam <adam@email.com>"
-  ]
+  "contributors": ["Barry", "Adam <adam@email.com>"]
 }
 ```
 
@@ -100,10 +97,7 @@ Output:
   "name": "prettier-package-json",
   "version": "1.0.1",
   "author": "Cameron Hunter <hello@cameronhunter.co.uk> (https://cameronhunter.co.uk)",
-  "contributors": [
-    "Adam <adam@email.com>",
-    "Barry"
-  ]
+  "contributors": ["Adam <adam@email.com>", "Barry"]
 }
 ```
 
@@ -119,13 +113,7 @@ Input:
   "name": "prettier-package-json",
   "version": "1.0.1",
   "main": "src/index.js",
-  "files": [
-    "src/index.js",
-    "src",
-    "CHANGELOG.md",
-    "readme.md",
-    "package-lock.json"
-  ]
+  "files": ["src/index.js", "src", "CHANGELOG.md", "readme.md", "package-lock.json"]
 }
 ```
 
@@ -136,9 +124,7 @@ Output:
   "name": "prettier-package-json",
   "version": "1.0.1",
   "main": "src/index.js",
-  "files": [
-    "src"
-  ]
+  "files": ["src"]
 }
 ```
 
@@ -198,10 +184,7 @@ and add this config to your `package.json`:
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "package.json": [
-      "prettier-package-json --write",
-      "git add"
-    ]
+    "package.json": ["prettier-package-json --write", "git add"]
   }
 }
 ```
@@ -232,7 +215,7 @@ exit 1
 The API has two functions, exported as `format` and `check`. Usage is as follows:
 
 ```js
-const { format, check } = require("prettier-package-json");
+import { format, check } from 'prettier-package-json';
 
 const options = {}; // optional
 
@@ -250,22 +233,31 @@ with a proper default error code, so that in case of an error or invalid file th
 
 These are the status codes:
 
-*   `0`: all files valid, no error occured.
-*   `1`: an error ocurred, for example a JSON parse error. See message on `stderr` for details.
-*   `2`: not all files are valid.
+- `0`: all files valid, no error occured.
+- `1`: an error ocurred, for example a JSON parse error. See message on `stderr` for details.
+- `2`: not all files are valid.
 
 These exit codes are only set when in `--list-different` mode.
 
 ### Options
 
-`prettier-package-json` ships with a handful of customizable format options, usable in both the CLI and API.
+`prettier-package-json` ships with a handful of customizable format options, usable in both the CLI, API, and configuration file.
 
-| Option | Default | CLI override | API override |
-| ------------- | ------------- | ------------- | ------------- |
-| **Tab Width** - Specify the number of spaces per indentation-level. | `2` | `--tab-width <int>` | `tabWidth: <int>` |
-| **Tabs** - Indent lines with tabs instead of spaces. | `false` | `--use-tabs` | `useTabs: <bool>` |
-| **Expand Users** - Expand author and contributors into objects. | `false` | `--expand-users` | `expandUsers: <bool>` |
-| **Key Order** - Specify the order of keys. | See [default options](https://github.com/cameronhunter/prettier-package-json/blob/master/src/defaultOptions.js) | `--key-order <comma,separated,list...>` | `keyOrder: <array\|function>` |
+| Option                                                              | Default                                                                                                         | CLI override                            | API override                  |
+| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------- | ----------------------------- |
+| **Tab Width** - Specify the number of spaces per indentation-level. | `2`                                                                                                             | `--tab-width <int>`                     | `tabWidth: <int>`             |
+| **Tabs** - Indent lines with tabs instead of spaces.                | `false`                                                                                                         | `--use-tabs`                            | `useTabs: <bool>`             |
+| **Expand Users** - Expand author and contributors into objects.     | `false`                                                                                                         | `--expand-users`                        | `expandUsers: <bool>`         |
+| **Key Order** - Specify the order of keys.                          | See [default options](https://github.com/cameronhunter/prettier-package-json/blob/master/src/defaultOptions.js) | `--key-order <comma,separated,list...>` | `keyOrder: <array\|function>` |
+
+A configuration file will be searched for using [`cosmiconfig`](https://www.npmjs.com/package/cosmiconfig) rules:
+
+- `prettier-package-json` field in `package.json`.
+- `prettier-package-json` file (JSON or YAML), extentionless "rc" file.
+- `prettier-package-json` file with the extensions `.json`, `.yaml`, `.yml`, `.js`, or `.cjs`.
+- `prettier-package-json.config.js` or `prettier-package-json.config.cjs` CommonJS module.
+
+Configuration file may also be passed using the `--config` CLI parameter.
 
 ## Contributing
 

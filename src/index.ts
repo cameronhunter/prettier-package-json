@@ -1,3 +1,4 @@
+import { cosmiconfigSync } from 'cosmiconfig';
 import sortObject from 'sort-object-keys';
 import { defaultOptions } from './defaultOptions';
 import sortUsers from './sort-contributors';
@@ -8,7 +9,7 @@ import type { Options, PackageJson, PackageJsonKey } from './types';
 export { Options };
 
 export function format(packageJson: PackageJson, opts?: Options) {
-  const options: Options = { ...defaultOptions, ...opts };
+  const options = getConfig(opts);
 
   const json = {
     ...packageJson,
@@ -39,13 +40,19 @@ export function format(packageJson: PackageJson, opts?: Options) {
 
 export function check(packageJson: string | PackageJson, opts: Options): boolean {
   try {
-    const options = { ...defaultOptions, ...opts };
+    const options = getConfig(opts);
     const object = typeof packageJson === 'string' ? JSON.parse(packageJson) : packageJson;
     const formatted = format(object, options);
     return stringify(object, options) === formatted;
   } catch (e) {
     return false;
   }
+}
+
+function getConfig(options?: Options): Options {
+  const explorer = cosmiconfigSync('prettier-package-json');
+  const result = explorer.search();
+  return { ...defaultOptions, ...result?.config, ...options };
 }
 
 function stringify(object: object, options: Options): string {

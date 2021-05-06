@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "commander": "^4.0.1",
+    "cosmiconfig": "^7.0.0",
     "fs-extra": "^10.0.0",
     "glob": "^7.1.6",
     "minimatch": "^3.0.4",
