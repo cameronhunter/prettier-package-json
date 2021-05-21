@@ -24,8 +24,8 @@ Object {
 		\\"jest\\": \\"^20.0.4\\"
 	},
 	\\"files\\": [
-		\\"src\\",
-		\\"test\\"
+		\\"src/\\",
+		\\"test/\\"
 	],
 	\\"keywords\\": [
 		\\"formatter\\",
@@ -82,8 +82,8 @@ Object {
                 \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
         },
         \\"files\\": [
-                \\"src\\",
-                \\"test\\"
+                \\"src/\\",
+                \\"test/\\"
         ],
         \\"scripts\\": {
                 \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
@@ -129,8 +129,8 @@ Object {
 		\\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
 	},
 	\\"files\\": [
-		\\"src\\",
-		\\"test\\"
+		\\"src/\\",
+		\\"test/\\"
 	],
 	\\"scripts\\": {
 		\\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
@@ -176,8 +176,8 @@ Object {
     \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
   },
   \\"files\\": [
-    \\"src\\",
-    \\"test\\"
+    \\"src/\\",
+    \\"test/\\"
   ],
   \\"scripts\\": {
     \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
@@ -258,8 +258,8 @@ Object {
     \\"prettier-package-json\\": \\"./bin/prettier-package-json\\"
   },
   \\"files\\": [
-    \\"src\\",
-    \\"test\\"
+    \\"src/\\",
+    \\"test/\\"
   ],
   \\"scripts\\": {
     \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",

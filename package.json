@@ -14,8 +14,8 @@
     "prettier-package-json": "./bin/prettier-package-json"
   },
   "files": [
-    "bin",
-    "build"
+    "bin/",
+    "build/"
   ],
   "scripts": {
     "build": "tsc",
