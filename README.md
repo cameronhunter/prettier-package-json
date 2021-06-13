@@ -8,7 +8,7 @@
 
 ### Consistent key order
 
-Keys in `package.json` will be sorted in an [opinionated order](src/defaultOptions.js) but may be configured to your own preferences.
+Keys in `package.json` will be sorted in an [opinionated order](src/defaultOptions.ts) but may be configured to your own preferences.
 
 Input:
 
@@ -248,7 +248,7 @@ These exit codes are only set when in `--list-different` mode.
 | **Tab Width** - Specify the number of spaces per indentation-level. | `2`                                                                                                             | `--tab-width <int>`                     | `tabWidth: <int>`             |
 | **Tabs** - Indent lines with tabs instead of spaces.                | `false`                                                                                                         | `--use-tabs`                            | `useTabs: <bool>`             |
 | **Expand Users** - Expand author and contributors into objects.     | `false`                                                                                                         | `--expand-users`                        | `expandUsers: <bool>`         |
-| **Key Order** - Specify the order of keys.                          | See [default options](https://github.com/cameronhunter/prettier-package-json/blob/master/src/defaultOptions.js) | `--key-order <comma,separated,list...>` | `keyOrder: <array\|function>` |
+| **Key Order** - Specify the order of keys.                          | See [default options](src/defaultOptions.ts) | `--key-order <comma,separated,list...>` | `keyOrder: <array\|function>` |
 
 A configuration file will be searched for using [`cosmiconfig`](https://www.npmjs.com/package/cosmiconfig) rules:
 
