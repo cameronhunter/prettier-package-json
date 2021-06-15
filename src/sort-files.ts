@@ -10,8 +10,8 @@ import { PackageJson } from './types';
 
 type FilterFn<T> = (...args: T[]) => boolean;
 
-const not = <T>(filterFn: FilterFn<T>) => (arg: T) => !filterFn(arg);
-const or = <T>(...filterFns: FilterFn<T>[]) => (arg: T) => filterFns.some((fn) => fn(arg));
+const not = <T>(filterFn: FilterFn<T>) => (arg: T) => !filterFn(arg); // prettier-ignore
+const or = <T>(...filterFns: FilterFn<T>[]) => (arg: T) => filterFns.some((fn) => fn(arg)); // prettier-ignore
 
 const ALWAYS_INCLUDED = [
   /^package.json$/,
@@ -41,7 +41,7 @@ const ALWAYS_EXCLUDED = [
   '*.orig',
   'package-lock.json'
 ]
-  .map((glob) => (minimatch.filter(glob) as any) as FilterFn<string>)
+  .map((glob) => minimatch.filter(glob) as any as FilterFn<string>)
   .reduce((a, b) => or(a, b));
 
 export default function sortFiles(packageJson: PackageJson): { files?: PackageJson['files'] } {
