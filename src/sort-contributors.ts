@@ -3,6 +3,7 @@ import sortObject from 'sort-object-keys';
 import orderBy from 'sort-order';
 import { Author, Options, PackageJson } from './types';
 
+// prettier-ignore
 // Sort by a field in an object
 const field = <TType extends object>(name: keyof TType) => (...args: [TType, TType]) => {
   const [a, b] = args.map((obj) => obj[name]);
