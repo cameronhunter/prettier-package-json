@@ -2,32 +2,31 @@ import sortObject from 'sort-object-keys';
 import orderBy from 'sort-order';
 import { PackageJson } from './types';
 
-const PRE_OR_POST_PREFIX = /^(pre|post)/;
+const checkPre = (arg: string, scripts: PackageJson['scripts']): boolean =>
+  /^pre/.test(arg) && scripts!.hasOwnProperty(arg.substr(3));
+
+const checkPost = (arg: string, scripts: PackageJson['scripts']): boolean =>
+  /^post/.test(arg) && scripts!.hasOwnProperty(arg.substr(4));
 
 // Sort alphabetically by script name excluding pre/post prefixes
-function scriptName(...args: [string, string]): 1 | 0 | -1 {
-  const [a, b] = args.map((arg) => arg.replace(PRE_OR_POST_PREFIX, ''));
-  if (a !== b) {
-    return a < b ? -1 : 1;
-  } else {
-    return 0;
-  }
+function scriptName(this: PackageJson['scripts'], ...args: [string, string]): 1 | 0 | -1 {
+  const [a, b] = args.map((arg) =>
+    checkPre(arg, this) || checkPost(arg, this) ? arg.replace(/^(pre|post)/, '') : arg,
+  );
+  return a === b ? 0 : a < b ? -1 : 1;
 }
 
 // Sort by pre, script, post
-function prePostHooks(a: string, b: string): 1 | 0 | -1 {
-  if (a.startsWith('pre') || b.startsWith('post')) {
-    return -1;
-  } else if (a.startsWith('post') || b.startsWith('pre')) {
-    return 1;
-  } else {
-    return 0;
-  }
+function prePostHooks(this: PackageJson['scripts'], a: string, b: string): 1 | 0 | -1 {
+  if (checkPre(a, this) || checkPost(b, this)) return -1;
+  else if (checkPost(a, this) || checkPre(b, this)) return 1;
+  return 0;
 }
 
-const order = orderBy(scriptName, prePostHooks);
-
-export default function sortScripts(scripts: PackageJson['scripts']): { scripts?: PackageJson['scripts'] } {
-  const keys = Object.keys(scripts || {}) as Array<keyof PackageJson['scripts']>;
+export default function sortScripts(scripts: PackageJson['scripts'] = {}): {
+  scripts?: PackageJson['scripts'];
+} {
+  const order = orderBy(scriptName.bind(scripts), prePostHooks.bind(scripts));
+  const keys = Object.keys(scripts) as never[];
   return keys.length === 0 ? {} : { scripts: sortObject(scripts, keys.sort(order)) };
 }
