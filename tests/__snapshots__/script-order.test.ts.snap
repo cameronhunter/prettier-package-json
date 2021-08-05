@@ -12,3 +12,19 @@ exports[`It orders scripts in alphabetical order, keeping pre and post scripts b
 }
 "
 `;
+
+exports[`It sorts scripts beginning with pre or post in alphabetical order if their base script is not present 1`] = `
+"{
+  \\"scripts\\": {
+    \\"parse\\": \\"parse\\",
+    \\"postcss:watch\\": \\"postcss:watch\\",
+    \\"prepare\\": \\"prepare\\",
+    \\"preprettify\\": \\"preprettify\\",
+    \\"prettify\\": \\"prettify\\",
+    \\"postprettify\\": \\"postprettify\\",
+    \\"prestart\\": \\"prestart\\",
+    \\"start\\": \\"start\\"
+  }
+}
+"
+`;
