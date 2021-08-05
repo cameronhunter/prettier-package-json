@@ -11,7 +11,7 @@ const checkPost = (arg: string, scripts: PackageJson['scripts']): boolean =>
 // Sort alphabetically by script name excluding pre/post prefixes
 function scriptName(this: PackageJson['scripts'], ...args: [string, string]): 1 | 0 | -1 {
   const [a, b] = args.map((arg) =>
-    checkPre(arg, this) || checkPost(arg, this) ? arg.replace(/^(pre|post)/, '') : arg,
+    checkPre(arg, this) || checkPost(arg, this) ? arg.replace(/^(pre|post)/, '') : arg
   );
   return a === b ? 0 : a < b ? -1 : 1;
 }

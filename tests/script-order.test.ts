@@ -7,8 +7,8 @@ test('It orders scripts in alphabetical order, keeping pre and post scripts besi
       pretest: 'pretest',
       version: 'version',
       postversion: 'postversion',
-      build: 'build',
-    },
+      build: 'build'
+    }
   };
 
   expect(format(json)).toMatchSnapshot();
@@ -24,8 +24,8 @@ test('It sorts scripts beginning with pre or post in alphabetical order if their
       prestart: 'prestart',
       preprettify: 'preprettify',
       start: 'start',
-      'postcss:watch': 'postcss:watch',
-    },
+      'postcss:watch': 'postcss:watch'
+    }
   };
 
   expect(format(json)).toMatchSnapshot();
