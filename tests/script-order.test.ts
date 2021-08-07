@@ -18,13 +18,19 @@ test('It sorts scripts beginning with pre or post in alphabetical order if their
   const json = {
     scripts: {
       prettify: 'prettify',
+      prepublishOnly: 'prepublishOnly',
       prepare: 'prepare',
+      postpublish: 'postpublish',
       parse: 'parse',
       postprettify: 'postprettify',
+      prepublish: 'prepublish',
       prestart: 'prestart',
       preprettify: 'preprettify',
+      poststop: 'poststop',
       start: 'start',
-      'postcss:watch': 'postcss:watch'
+      'postcss:watch': 'postcss:watch',
+      instant: 'instant',
+      preinstall: 'preinstall'
     }
   };
 

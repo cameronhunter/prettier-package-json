@@ -1,32 +1,45 @@
-import sortObject from 'sort-object-keys';
+import type { PackageJson } from './types';
+
 import orderBy from 'sort-order';
-import { PackageJson } from './types';
+import sortObject from 'sort-object-keys';
 
-const checkPre = (arg: string, scripts: PackageJson['scripts']): boolean =>
-  /^pre/.test(arg) && scripts!.hasOwnProperty(arg.substr(3));
+type Scripts = PackageJson['scripts'];
 
-const checkPost = (arg: string, scripts: PackageJson['scripts']): boolean =>
-  /^post/.test(arg) && scripts!.hasOwnProperty(arg.substr(4));
+const inbuiltScripts = ['install', 'pack', 'publish', 'restart', 'start', 'stop', 'test', 'uninstall', 'version'];
+
+// Remove pre/post prefixes from script name
+const removePrefix = (scripts: Scripts, arg: string, prefix?: 'pre' | 'post'): string | false => {
+  if (prefix !== 'post' && arg === 'prepublishOnly') return 'publish';
+  const base = arg.replace(new RegExp(`^(${prefix || 'pre|post'})`), '');
+  return base !== arg && (scripts!.hasOwnProperty(base) || inbuiltScripts.includes(base)) ? base : false;
+};
 
 // Sort alphabetically by script name excluding pre/post prefixes
-function scriptName(this: PackageJson['scripts'], ...args: [string, string]): 1 | 0 | -1 {
-  const [a, b] = args.map((arg) =>
-    checkPre(arg, this) || checkPost(arg, this) ? arg.replace(/^(pre|post)/, '') : arg
-  );
+const scriptName = (scripts: Scripts, ...args: [string, string]): 1 | 0 | -1 => {
+  const [a, b] = args.map((arg) => removePrefix(scripts, arg) || arg);
   return a === b ? 0 : a < b ? -1 : 1;
-}
+};
 
 // Sort by pre, script, post
-function prePostHooks(this: PackageJson['scripts'], a: string, b: string): 1 | 0 | -1 {
-  if (checkPre(a, this) || checkPost(b, this)) return -1;
-  else if (checkPost(a, this) || checkPre(b, this)) return 1;
+const prePostHooks = (scripts: Scripts, a: string, b: string): 1 | 0 | -1 => {
+  if (removePrefix(scripts, a, 'pre') || removePrefix(scripts, b, 'post')) return -1;
+  if (removePrefix(scripts, a, 'post') || removePrefix(scripts, b, 'pre')) return 1;
   return 0;
-}
+};
 
-export default function sortScripts(scripts: PackageJson['scripts'] = {}): {
-  scripts?: PackageJson['scripts'];
-} {
-  const order = orderBy(scriptName.bind(scripts), prePostHooks.bind(scripts));
-  const keys = Object.keys(scripts) as never[];
-  return keys.length === 0 ? {} : { scripts: sortObject(scripts, keys.sort(order)) };
-}
+// Sort publish scripts in an opinionated order
+const publishScripts = (...args: [string, string]): 1 | 0 | -1 => {
+  const [a, b] = args.map((arg) => ['prepublish', 'prepublishOnly', 'publish', 'postpublish'].indexOf(arg));
+  return a === -1 || b === -1 || a === b ? 0 : a < b ? -1 : 1;
+};
+
+const sortScripts = (scripts: Scripts = {}): { scripts?: Scripts } => {
+  const order = orderBy<string>(
+    (a, b) => scriptName(scripts, a, b),
+    (a, b) => prePostHooks(scripts, a, b)
+  );
+  const keys = Object.keys(scripts) as Array<keyof Scripts>;
+  return keys.length === 0 ? {} : { scripts: sortObject(scripts, keys.sort(order).sort(publishScripts)) };
+};
+
+export default sortScripts;
