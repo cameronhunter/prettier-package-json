@@ -1,6 +1,6 @@
 {
   "name": "prettier-package-json",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Prettier formatter for package.json files",
   "license": "MIT",
   "author": "Cameron Hunter <hello@cameronhunter.co.uk>",
@@ -25,6 +25,7 @@
     "version": "git push && git push --tags"
   },
   "dependencies": {
+    "@types/parse-author": "^2.0.0",
     "commander": "^4.0.1",
     "cosmiconfig": "^7.0.0",
     "fs-extra": "^10.0.0",
@@ -38,7 +39,6 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/jest": "^26.0.23",
     "@types/minimatch": "^3.0.4",
-    "@types/parse-author": "^2.0.0",
     "@types/sort-object-keys": "^1.1.0",
     "cross-spawn": "^7.0.3",
     "husky": "^6.0.0",
