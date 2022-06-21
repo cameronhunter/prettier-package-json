@@ -63,3 +63,15 @@ test('It orders scripts in alphabetical order, keeping pre and post scripts besi
 
   expect(format(json)).toMatchSnapshot();
 });
+
+test('It sorts dependencies lowercase-first (to match npm)', () => {
+  const json = {
+    dependencies: {
+      a: '*',
+      A: '*',
+      b: '*'
+    }
+  };
+
+  expect(format(json)).toMatchSnapshot();
+});

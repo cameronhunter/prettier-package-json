@@ -50,3 +50,14 @@ exports[`It orders unspecified keys alphabetically at the end 1`] = `
 }
 "
 `;
+
+exports[`It sorts dependencies lowercase-first (to match npm) 1`] = `
+"{
+  \\"dependencies\\": {
+    \\"a\\": \\"*\\",
+    \\"A\\": \\"*\\",
+    \\"b\\": \\"*\\"
+  }
+}
+"
+`;

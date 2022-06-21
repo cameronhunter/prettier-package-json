@@ -1,6 +1,7 @@
 import { cosmiconfigSync } from 'cosmiconfig';
 import sortObject from 'sort-object-keys';
 import { defaultOptions } from './defaultOptions';
+import sortDependencies from './sort-dependencies';
 import sortUsers from './sort-contributors';
 import sortFiles from './sort-files';
 import sortScripts from './sort-scripts';
@@ -22,12 +23,12 @@ export function format(packageJson: PackageJson, opts?: Options) {
     ...sort('directories', packageJson),
     ...sortScripts(packageJson.scripts),
     ...sort('config', packageJson),
-    ...sort('optionalDependencies', packageJson),
-    ...sort('dependencies', packageJson),
-    ...sort('bundleDependencies', packageJson),
-    ...sort('bundledDependencies', packageJson),
-    ...sort('peerDependencies', packageJson),
-    ...sort('devDependencies', packageJson),
+    ...sortDependencies('optionalDependencies', packageJson),
+    ...sortDependencies('dependencies', packageJson),
+    ...sortDependencies('bundleDependencies', packageJson),
+    ...sortDependencies('bundledDependencies', packageJson),
+    ...sortDependencies('peerDependencies', packageJson),
+    ...sortDependencies('devDependencies', packageJson),
     ...sort('keywords', packageJson),
     ...sort('engines', packageJson),
     ...sort('os', packageJson),
