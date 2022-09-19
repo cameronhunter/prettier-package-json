@@ -25,10 +25,10 @@ export const defaultOptions: Options = {
     /**
      * Configuration
      */
+    'exports',
     'main',
     'module',
-    'browser',
-    'exports',
+    'browser',    
     'man',
     'preferGlobal',
     'bin',
