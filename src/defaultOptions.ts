@@ -28,6 +28,7 @@ export const defaultOptions: Options = {
     'main',
     'module',
     'browser',
+    'exports',
     'man',
     'preferGlobal',
     'bin',
