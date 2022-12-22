@@ -30,3 +30,27 @@ test('It orders scripts with separators in alphabetical order', () => {
 
   expect(format(json)).toMatchSnapshot();
 });
+
+test('It orders scripts that base script does not exist in alphabetical order', () => {
+  const json = {
+    scripts: {
+      lint: 'run-s lint:* *:lint',
+      'lint:eslint': 'lint:eslint',
+      'prettier:lint': 'prettier:lint',
+      'lint-fix': 'run-s lint-fix:* *:lint-fix',
+      'lint-fix:eslint': 'lint-fix:eslint',
+      'prettier:lint-fix': 'prettier:lint-fix',
+      postcss: 'postcss',
+      prepostcss: 'postpostcss',
+      postpostcss: 'postpostcss',
+      prepublishOnly: 'prepublishOnly',
+      prepare: 'prepare',
+      preprepare: 'preprepare',
+      postprepare: 'postprepare',
+      preinstall: 'preinstall',
+      postinstall: 'postinstall'
+    },
+  };
+
+  expect(format(json)).toMatchSnapshot();
+});

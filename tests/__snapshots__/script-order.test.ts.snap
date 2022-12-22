@@ -13,6 +13,29 @@ exports[`It orders scripts in alphabetical order, keeping pre and post scripts b
 "
 `;
 
+exports[`It orders scripts that base script does not exist in alphabetical order 1`] = `
+"{
+  \\"scripts\\": {
+    \\"preinstall\\": \\"preinstall\\",
+    \\"postinstall\\": \\"postinstall\\",
+    \\"lint\\": \\"run-s lint:* *:lint\\",
+    \\"lint:eslint\\": \\"lint:eslint\\",
+    \\"lint-fix\\": \\"run-s lint-fix:* *:lint-fix\\",
+    \\"lint-fix:eslint\\": \\"lint-fix:eslint\\",
+    \\"prepostcss\\": \\"postpostcss\\",
+    \\"postcss\\": \\"postcss\\",
+    \\"postpostcss\\": \\"postpostcss\\",
+    \\"preprepare\\": \\"preprepare\\",
+    \\"prepare\\": \\"prepare\\",
+    \\"postprepare\\": \\"postprepare\\",
+    \\"prettier:lint\\": \\"prettier:lint\\",
+    \\"prettier:lint-fix\\": \\"prettier:lint-fix\\",
+    \\"prepublishOnly\\": \\"prepublishOnly\\"
+  }
+}
+"
+`;
+
 exports[`It orders scripts with separators in alphabetical order 1`] = `
 "{
   \\"scripts\\": {
