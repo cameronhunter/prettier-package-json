@@ -12,3 +12,19 @@ exports[`It orders scripts in alphabetical order, keeping pre and post scripts b
 }
 "
 `;
+
+exports[`It orders scripts with separators in alphabetical order 1`] = `
+"{
+  \\"scripts\\": {
+    \\"dev\\": \\"dev\\",
+    \\"lint\\": \\"lint\\",
+    \\"lint:bar\\": \\"lint:bar\\",
+    \\"lint:foo\\": \\"lint:foo\\",
+    \\"lint-fix\\": \\"lint-fix\\",
+    \\"lint-fix:baz\\": \\"lint-fix:baz\\",
+    \\"lint-fix:qux\\": \\"lint-fix:qux\\",
+    \\"test\\": \\"test\\"
+  }
+}
+"
+`;
