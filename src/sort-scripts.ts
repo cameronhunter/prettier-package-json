@@ -6,13 +6,13 @@ const PRE_OR_POST_PREFIX = /^(pre|post)/;
 const NPM_RUN_ALL_SEPARATOR = /([:/])/;
 const NPM_BUILTIN_SCRIPTS = ['install', 'prepare', 'pack', 'publish', 'restart', 'start', 'stop', 'test', 'version', 'uninstall'];
 
-function parseScriptName(scripts: PackageJson['scripts'], script: string): { prefix: '' | 'pre' | 'post'; name: string } {
+function parseScriptName(scripts: PackageJson['scripts'], script: string): { prefix: undefined | 'pre' | 'post'; name: string } {
   if (script === 'prepublishOnly') return { prefix: 'pre', name: 'publish' };
   const prefixMatch = PRE_OR_POST_PREFIX.exec(script);
-  const prefix = prefixMatch ? prefixMatch[0] as 'pre' | 'post' : '';
-  const name = script.slice(prefix.length);
+  const prefix = prefixMatch ? prefixMatch[0] as 'pre' | 'post' : undefined;
+  const name = prefix ? script.slice(prefix.length) : script;
   if (scripts!.hasOwnProperty(name) || NPM_BUILTIN_SCRIPTS.includes(name)) return { prefix, name };
-  return { prefix: '', name: script };
+  return { prefix: undefined, name: script };
 }
 
 // Sort alphabetically by script name excluding pre/post prefixes
