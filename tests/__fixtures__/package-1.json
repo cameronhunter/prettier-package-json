@@ -20,6 +20,8 @@
     "src/",
     "HISTORY",
     "CHANGELOG.md",
+    "LICENSE",
+    "COPYING",
     "readme.md",
     "package-lock.json"
   ],

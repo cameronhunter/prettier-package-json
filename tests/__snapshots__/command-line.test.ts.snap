@@ -25,7 +25,9 @@ Object {
 	},
 	\\"files\\": [
 		\\"src/\\",
-		\\"test/\\"
+		\\"test/\\",
+		\\"CHANGELOG.md\\",
+		\\"HISTORY\\"
 	],
 	\\"keywords\\": [
 		\\"formatter\\",
@@ -83,7 +85,9 @@ Object {
         },
         \\"files\\": [
                 \\"src/\\",
-                \\"test/\\"
+                \\"test/\\",
+                \\"CHANGELOG.md\\",
+                \\"HISTORY\\"
         ],
         \\"scripts\\": {
                 \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
@@ -130,7 +134,9 @@ Object {
 	},
 	\\"files\\": [
 		\\"src/\\",
-		\\"test/\\"
+		\\"test/\\",
+		\\"CHANGELOG.md\\",
+		\\"HISTORY\\"
 	],
 	\\"scripts\\": {
 		\\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
@@ -177,7 +183,9 @@ Object {
   },
   \\"files\\": [
     \\"src/\\",
-    \\"test/\\"
+    \\"test/\\",
+    \\"CHANGELOG.md\\",
+    \\"HISTORY\\"
   ],
   \\"scripts\\": {
     \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",
@@ -259,7 +267,9 @@ Object {
   },
   \\"files\\": [
     \\"src/\\",
-    \\"test/\\"
+    \\"test/\\",
+    \\"CHANGELOG.md\\",
+    \\"HISTORY\\"
   ],
   \\"scripts\\": {
     \\"precommit\\": \\"./bin/prettier-package-json --write && git add package.json\\",

@@ -13,14 +13,7 @@ type FilterFn<T> = (...args: T[]) => boolean;
 const not = <T>(filterFn: FilterFn<T>) => (arg: T) => !filterFn(arg); // prettier-ignore
 const or = <T>(...filterFns: FilterFn<T>[]) => (arg: T) => filterFns.some((fn) => fn(arg)); // prettier-ignore
 
-const ALWAYS_INCLUDED = [
-  /^package.json$/,
-  /^README.*/i,
-  /^CHANGE(S|LOG).*/i,
-  /^HISTORY.*/i,
-  /^LICEN(C|S)E.*/i,
-  /^NOTICE.*/i
-]
+const ALWAYS_INCLUDED = [/^package.json$/, /^README.*/i, /^LICEN(C|S)E.*/i, /^copying.*/i]
   .map((regex) => (filepath: string) => regex.test(filepath))
   .reduce((a, b) => or(a, b));
 
@@ -39,7 +32,9 @@ const ALWAYS_EXCLUDED = [
   'node_modules',
   'config.gypi',
   '*.orig',
-  'package-lock.json'
+  'package-lock.json',
+  'yarn.lock',
+  'pnpm-lock.yaml'
 ]
   .map((glob) => minimatch.filter(glob) as any as FilterFn<string>)
   .reduce((a, b) => or(a, b));

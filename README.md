@@ -138,7 +138,7 @@ Output:
   "name": "prettier-package-json",
   "version": "1.0.1",
   "main": "src/index.js",
-  "files": ["src"]
+  "files": ["src", "CHANGELOG.md"]
 }
 ```
 
